@@ -196,8 +196,6 @@ namespace SegmenterPoc
                 _photoResult = null;
 
                 AnnotationsCanvas.Children.Clear();
-
-                AttemptUpdatePreviewAsync();
             }
 
             if (Model.OriginalImage != null)
@@ -207,13 +205,18 @@ namespace SegmenterPoc
                     _brush = Model.ForegroundBrush;
                 }
 
-                var originalBitmap = new BitmapImage();
+                var originalBitmap = new BitmapImage()
+                {
+                    DecodePixelWidth = (int)(480.0 * App.Current.Host.Content.ScaleFactor / 100.0)
+                };
 
                 Model.OriginalImage.Position = 0;
 
                 originalBitmap.SetSource(Model.OriginalImage);
 
                 OriginalImage.Source = originalBitmap;
+
+                AttemptUpdatePreviewAsync();
             }
             else
             {
@@ -241,6 +244,14 @@ namespace SegmenterPoc
             }
 
             base.OnNavigatingFrom(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            MaskImage.Source = null;
+            OriginalImage.Source = null;
         }
 
         private void AdaptButtonsToState()

@@ -15,11 +15,13 @@ using Nokia.Graphics.Imaging;
 using SegmenterPoc.Models;
 using SegmenterPoc.Resources;
 using System;
+using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
+using Windows.Storage.Streams;
 
 namespace SegmenterPoc.Pages
 {
@@ -124,6 +126,13 @@ namespace SegmenterPoc.Pages
             base.OnNavigatingFrom(e);
         }
 
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            PreviewImage.Source = null;
+        }
+
         private void AdaptButtonsToState()
         {
             var accentColorBrush = (Brush)Application.Current.Resources["PhoneAccentBrush"];
@@ -196,8 +205,10 @@ namespace SegmenterPoc.Pages
 
                 Model.OriginalImage.Position = 0;
 
+                IBuffer buffer = null;
+
                 using (var source = new StreamImageSource(Model.OriginalImage))
-                using (var segmenter = new Nokia.Graphics.Imaging.InteractiveForegroundSegmenter(source))
+                using (var segmenter = new InteractiveForegroundSegmenter(source))
                 using (var annotationsSource = new BitmapImageSource(Model.AnnotationsBitmap))
                 {
                     segmenter.IsPreview = false;
@@ -214,17 +225,20 @@ namespace SegmenterPoc.Pages
                     {
                         effect.KernelMap = segmenter;
 
-                        var buffer = await renderer.RenderAsync();
+                        buffer = await renderer.RenderAsync();
+                    }
+                }
 
-                        using (var library = new MediaLibrary())
-                        using (var stream = buffer.AsStream())
-                        {
-                            library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
+                if (buffer != null)
+                {
+                    using (var library = new MediaLibrary())
+                    using (var stream = buffer.AsStream())
+                    {
+                        library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
 
-                            Model.Saved = true;
+                        Model.Saved = true;
 
-                            AdaptButtonsToState();
-                        }
+                        AdaptButtonsToState();
                     }
                 }
 
