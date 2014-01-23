@@ -301,7 +301,7 @@ namespace SegmenterPoc
 
             _polyline.Points.Add(point);
 
-            AnnotationsCanvas.Children.Add(_polyline);
+            CurrentAnnotationCanvas.Children.Add(_polyline);
 
             Cursor.RenderTransform = new TranslateTransform()
             {
@@ -336,17 +336,23 @@ namespace SegmenterPoc
 
         private void AnnotationsCanvas_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
         {
-            _manipulating = false;
-
             Cursor.Visibility = Visibility.Collapsed;
 
             if (_polyline.Points.Count < 2)
             {
-                AnnotationsCanvas.Children.RemoveAt(AnnotationsCanvas.Children.Count - 1);
+                CurrentAnnotationCanvas.Children.Clear();
+
+                _manipulating = false;
             }
             else
             {
+                CurrentAnnotationCanvas.Children.RemoveAt(CurrentAnnotationCanvas.Children.Count - 1);
+
+                AnnotationsCanvas.Children.Add(_polyline);
+
                 AdaptButtonsToState();
+
+                _manipulating = false;
 
                 AttemptUpdatePreviewAsync();
             }
@@ -447,7 +453,7 @@ namespace SegmenterPoc
                         MaskImage.Source = null;
                     }
                 }
-                while (_processingPending);
+                while (_processingPending && !_manipulating);
 
                 Processing = false;
             }

@@ -79,6 +79,7 @@
                 <Image x:Name="OriginalImage" Stretch="Uniform" MaxWidth="456" MaxHeight="490"/>
                 <Image x:Name="MaskImage" Opacity="0.625" Stretch="Uniform"/>
                 <Canvas x:Name="AnnotationsCanvas"/>
+                <Canvas x:Name="CurrentAnnotationCanvas"/>
                 <Border x:Name="Cursor" BorderBrush="White" CornerRadius="90" BorderThickness="2"
                         Width="10" Height="10" Margin="-5,-5" Visibility="Collapsed"
                         HorizontalAlignment="Left" VerticalAlignment="Top" CacheMode="BitmapCache"/>
