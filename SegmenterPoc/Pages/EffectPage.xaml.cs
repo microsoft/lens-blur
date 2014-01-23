@@ -9,6 +9,7 @@
  */
 
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Info;
 using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework.Media;
 using Nokia.Graphics.Imaging;
@@ -203,15 +204,27 @@ namespace SegmenterPoc.Pages
             {
                 Processing = true;
 
-                Model.OriginalImage.Position = 0;
+                var lowMemory = false;
+
+                try
+                {
+                    long result = (long)DeviceExtendedProperties.GetValue("ApplicationWorkingSetLimit");
+
+                    lowMemory = result / 1024 / 1024 < 300;
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+                }
 
                 IBuffer buffer = null;
+
+                Model.OriginalImage.Position = 0;
 
                 using (var source = new StreamImageSource(Model.OriginalImage))
                 using (var segmenter = new InteractiveForegroundSegmenter(source))
                 using (var annotationsSource = new BitmapImageSource(Model.AnnotationsBitmap))
                 {
-                    segmenter.IsPreview = false;
+                    segmenter.IsPreview = lowMemory;
                     segmenter.AnnotationsSource = annotationsSource;
 
                     var foregroundColor = Model.ForegroundBrush.Color;
@@ -229,17 +242,14 @@ namespace SegmenterPoc.Pages
                     }
                 }
 
-                if (buffer != null)
+                using (var library = new MediaLibrary())
+                using (var stream = buffer.AsStream())
                 {
-                    using (var library = new MediaLibrary())
-                    using (var stream = buffer.AsStream())
-                    {
-                        library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
+                    library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
 
-                        Model.Saved = true;
+                    Model.Saved = true;
 
-                        AdaptButtonsToState();
-                    }
+                    AdaptButtonsToState();
                 }
 
                 Processing = false;
