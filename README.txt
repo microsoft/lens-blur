@@ -1,5 +1,5 @@
-﻿Segmenter Poc
-=============
+﻿Lens Blur v0.1
+==============
 
 Known issues
 ------------
