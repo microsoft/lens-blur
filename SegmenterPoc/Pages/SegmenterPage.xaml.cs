@@ -196,6 +196,8 @@ namespace SegmenterPoc
                 _photoResult = null;
 
                 AnnotationsCanvas.Children.Clear();
+
+                Model.Saved = false;
             }
 
             if (Model.OriginalImage != null)
@@ -350,6 +352,8 @@ namespace SegmenterPoc
 
                 AnnotationsCanvas.Children.Add(_polyline);
 
+                Model.Saved = false;
+
                 AdaptButtonsToState();
 
                 _manipulating = false;
@@ -377,6 +381,8 @@ namespace SegmenterPoc
         {
             AnnotationsCanvas.Children.RemoveAt(AnnotationsCanvas.Children.Count - 1);
 
+            Model.Saved = false;
+
             AdaptButtonsToState();
 
             AttemptUpdatePreviewAsync();
@@ -385,6 +391,8 @@ namespace SegmenterPoc
         private void ResetButton_Click(object sender, EventArgs e)
         {
             AnnotationsCanvas.Children.Clear();
+
+            Model.Saved = false;
 
             AdaptButtonsToState();
 
