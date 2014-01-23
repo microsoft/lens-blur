@@ -29,6 +29,7 @@ namespace SegmenterPoc.Pages
         private bool _processingPending = false;
         private LensBlurPredefinedKernelShape _shape = LensBlurPredefinedKernelShape.Circle;
         private ApplicationBarIconButton _saveButton = null;
+        private ApplicationBarMenuItem _aboutMenuItem = null;
 
         private bool Processing
         {
@@ -66,14 +67,26 @@ namespace SegmenterPoc.Pages
                 IconUri = new Uri("Assets/Icons/Save.png", UriKind.Relative),
             };
 
+            _aboutMenuItem = new ApplicationBarMenuItem()
+            {
+                Text = AppResources.Application_AboutMenuItem
+            };
+
             _saveButton.Click += SaveButton_Click;
+            _aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.Buttons.Add(_saveButton);
+            ApplicationBar.MenuItems.Add(_aboutMenuItem);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             AttemptSave();
+        }
+
+        private void AboutMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/AboutPage.xaml", UriKind.Relative));
         }
 
         private void SizeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

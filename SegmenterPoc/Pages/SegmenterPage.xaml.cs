@@ -37,6 +37,7 @@ namespace SegmenterPoc
         private ApplicationBarIconButton _resetButton = null;
         private ApplicationBarIconButton _acceptButton = null;
         private ApplicationBarMenuItem _cursorMenuItem = null;
+        private ApplicationBarMenuItem _aboutMenuItem = null;
         private PhotoResult _photoResult = null;
         private double _cursorDeltaY = -50;
         private bool _manipulating = false;
@@ -143,17 +144,24 @@ namespace SegmenterPoc
                 Text = Model.CursorEnabled ? AppResources.SegmenterPage_DisableCursorMenuItem : AppResources.SegmenterPage_EnableCursorMenuItem
             };
 
+            _aboutMenuItem = new ApplicationBarMenuItem()
+            {
+                Text = AppResources.Application_AboutMenuItem
+            };
+
             _openButton.Click += OpenButton_Click;
             _undoButton.Click += UndoButton_Click;
             _resetButton.Click += ResetButton_Click;
             _acceptButton.Click += AcceptButton_Click;
             _cursorMenuItem.Click += CursorMenuItem_Click;
+            _aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.Buttons.Add(_openButton);
             ApplicationBar.Buttons.Add(_undoButton);
             ApplicationBar.Buttons.Add(_resetButton);
             ApplicationBar.Buttons.Add(_acceptButton);
             ApplicationBar.MenuItems.Add(_cursorMenuItem);
+            ApplicationBar.MenuItems.Add(_aboutMenuItem);
         }
 
         private void CursorMenuItem_Click(object sender, EventArgs e)
@@ -161,6 +169,11 @@ namespace SegmenterPoc
             Model.CursorEnabled = !Model.CursorEnabled;
 
             AdaptButtonsToState();
+        }
+
+        private void AboutMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/AboutPage.xaml", UriKind.Relative));
         }
 
         private void OriginalImage_LayoutUpdated(object sender, EventArgs e)

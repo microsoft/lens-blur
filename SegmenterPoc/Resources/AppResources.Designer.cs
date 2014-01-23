@@ -61,6 +61,53 @@ namespace SegmenterPoc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lens Blur is an example application on how to use Nokia Imaging SDK InteractiveForegroundSegmenter and the LensBlurEffect to blur only selected areas of images..
+        /// </summary>
+        public static string AboutPage_AboutText {
+            get {
+                return ResourceManager.GetString("AboutPage_AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open an image from the Photos gallery and mark foreground and background areas with different colors. It is not necessary to paint the whole areas, but only to give hints to the InteractiveForegroundSegmenter. Based on your annotations, the preview is automatically updated to show the generated foreground/background segmentation.
+        ///
+        ///When you&apos;re ready with marking the areas, click on the accept button to navigate to the blur shape selection and try out different blur kernel shapes and sizes. When you&apos;re happ [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string AboutPage_GuideText {
+            get {
+                return ResourceManager.GetString("AboutPage_GuideText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string AboutPage_Title {
+            get {
+                return ResourceManager.GetString("AboutPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lens Blur version {0}.
+        /// </summary>
+        public static string AboutPage_VersionText {
+            get {
+                return ResourceManager.GetString("AboutPage_VersionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        public static string Application_AboutMenuItem {
+            get {
+                return ResourceManager.GetString("Application_AboutMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LENS BLUR.
         /// </summary>
         public static string Application_Title {
@@ -241,7 +288,7 @@ namespace SegmenterPoc.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to mark segments.
+        ///   Looks up a localized string similar to mark areas.
         /// </summary>
         public static string SegmenterPage_Title {
             get {

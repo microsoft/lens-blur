@@ -174,7 +174,7 @@
     <value>reset</value>
   </data>
   <data name="SegmenterPage_Title" xml:space="preserve">
-    <value>mark segments</value>
+    <value>mark areas</value>
   </data>
   <data name="SegmenterPage_UndoButton" xml:space="preserve">
     <value>undo</value>
@@ -184,5 +184,22 @@
   </data>
   <data name="SegmenterPage_EnableCursorMenuItem" xml:space="preserve">
     <value>enable drawing cursor</value>
+  </data>
+  <data name="AboutPage_AboutText" xml:space="preserve">
+    <value>Lens Blur is an example application on how to use Nokia Imaging SDK InteractiveForegroundSegmenter and the LensBlurEffect to blur only selected areas of images.</value>
+  </data>
+  <data name="AboutPage_GuideText" xml:space="preserve">
+    <value>Open an image from the Photos gallery and mark foreground and background areas with different colors. It is not necessary to paint the whole areas, but only to give hints to the InteractiveForegroundSegmenter. Based on your annotations, the preview is automatically updated to show the generated foreground/background segmentation.
+
+When you're ready with marking the areas, click on the accept button to navigate to the blur shape selection and try out different blur kernel shapes and sizes. When you're happy with the result, you can save it to the Saved Photos album in the Photos gallery.</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="AboutPage_VersionText" xml:space="preserve">
+    <value>Lens Blur version {0}</value>
+  </data>
+  <data name="Application_AboutMenuItem" xml:space="preserve">
+    <value>about</value>
   </data>
 </root>
