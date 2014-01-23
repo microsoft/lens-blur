@@ -39,7 +39,7 @@ namespace SegmenterPoc
         private ApplicationBarMenuItem _cursorMenuItem = null;
         private ApplicationBarMenuItem _aboutMenuItem = null;
         private PhotoResult _photoResult = null;
-        private double _cursorDeltaY = -50;
+        private double _cursorDeltaY = -75;
         private bool _manipulating = false;
 
         private bool Processing
@@ -291,7 +291,7 @@ namespace SegmenterPoc
             _polyline = new System.Windows.Shapes.Polyline()
             {
                 Stroke = _brush,
-                StrokeThickness = 2
+                StrokeThickness = 6
             };
 
             var manipulationAreaDeltaX = ManipulationArea.Margin.Left;

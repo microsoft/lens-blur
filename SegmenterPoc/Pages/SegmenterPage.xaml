@@ -81,9 +81,9 @@
                 <Canvas x:Name="AnnotationsCanvas"/>
                 <Canvas x:Name="CurrentAnnotationCanvas"/>
                 <Border x:Name="Cursor" BorderBrush="White" CornerRadius="90" BorderThickness="2"
-                        Width="10" Height="10" Margin="-5,-5" Visibility="Collapsed"
+                        Width="12" Height="10" Margin="-5,-5" Visibility="Collapsed"
                         HorizontalAlignment="Left" VerticalAlignment="Top" CacheMode="BitmapCache"/>
-                <Grid x:Name="ManipulationArea" Background="Transparent" Margin="-50"/>
+                <Grid x:Name="ManipulationArea" Background="Transparent" Margin="-75"/>
             </Grid>
 
             <Grid Grid.Row="1">
