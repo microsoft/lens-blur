@@ -206,7 +206,7 @@ namespace SegmenterPoc.Pages
                         using (var library = new MediaLibrary())
                         using (var stream = buffer.AsStream())
                         {
-                            library.SavePicture("segmenterpoc_" + DateTime.Now.Ticks, stream);
+                            library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
 
                             Model.Saved = true;
 

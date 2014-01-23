@@ -19,7 +19,7 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>SegmenterPoc_$(Configuration)_$(Platform).xap</XapFilename>
+    <XapFilename>LensBlur_Release_ARM.xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>SegmenterPoc.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>

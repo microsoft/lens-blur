@@ -126,7 +126,7 @@
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="Application_Title" xml:space="preserve">
-    <value>SEGMENTER POC</value>
+    <value>LENS BLUR</value>
   </data>
   <data name="EffectPage_CircleLabel" xml:space="preserve">
     <value>circle</value>

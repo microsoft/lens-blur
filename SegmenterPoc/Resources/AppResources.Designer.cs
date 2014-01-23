@@ -61,7 +61,7 @@ namespace SegmenterPoc.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SEGMENTER POC.
+        ///   Looks up a localized string similar to LENS BLUR.
         /// </summary>
         public static string Application_Title {
             get {
