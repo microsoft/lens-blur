@@ -36,6 +36,7 @@ namespace SegmenterPoc
         private ApplicationBarIconButton _undoButton = null;
         private ApplicationBarIconButton _resetButton = null;
         private ApplicationBarIconButton _acceptButton = null;
+        private ApplicationBarMenuItem _cursorMenuItem = null;
         private PhotoResult _photoResult = null;
         private double _cursorDeltaY = -50;
         private bool _manipulating = false;
@@ -113,42 +114,53 @@ namespace SegmenterPoc
 
         private void CreateButtons()
         {
-            if (ApplicationBar.Buttons.Count == 0)
+            _openButton = new ApplicationBarIconButton()
             {
-                _openButton = new ApplicationBarIconButton()
-                {
-                    Text = AppResources.SegmenterPage_OpenButton,
-                    IconUri = new Uri("Assets/Icons/Folder.png", UriKind.Relative),
-                };
+                Text = AppResources.SegmenterPage_OpenButton,
+                IconUri = new Uri("Assets/Icons/Folder.png", UriKind.Relative),
+            };
 
-                _undoButton = new ApplicationBarIconButton()
-                {
-                    Text = AppResources.SegmenterPage_UndoButton,
-                    IconUri = new Uri("Assets/Icons/Undo.png", UriKind.Relative),
-                };
+            _undoButton = new ApplicationBarIconButton()
+            {
+                Text = AppResources.SegmenterPage_UndoButton,
+                IconUri = new Uri("Assets/Icons/Undo.png", UriKind.Relative),
+            };
 
-                _resetButton = new ApplicationBarIconButton()
-                {
-                    Text = AppResources.SegmenterPage_ResetButton,
-                    IconUri = new Uri("Assets/Icons/Delete.png", UriKind.Relative),
-                };
+            _resetButton = new ApplicationBarIconButton()
+            {
+                Text = AppResources.SegmenterPage_ResetButton,
+                IconUri = new Uri("Assets/Icons/Delete.png", UriKind.Relative),
+            };
 
-                _acceptButton = new ApplicationBarIconButton()
-                {
-                    Text = AppResources.SegmenterPage_AcceptButton,
-                    IconUri = new Uri("Assets/Icons/Check.png", UriKind.Relative),
-                };
+            _acceptButton = new ApplicationBarIconButton()
+            {
+                Text = AppResources.SegmenterPage_AcceptButton,
+                IconUri = new Uri("Assets/Icons/Check.png", UriKind.Relative),
+            };
 
-                _openButton.Click += OpenButton_Click;
-                _undoButton.Click += UndoButton_Click;
-                _resetButton.Click += ResetButton_Click;
-                _acceptButton.Click += AcceptButton_Click;
+            _cursorMenuItem = new ApplicationBarMenuItem()
+            {
+                Text = Model.CursorEnabled ? AppResources.SegmenterPage_DisableCursorMenuItem : AppResources.SegmenterPage_EnableCursorMenuItem
+            };
 
-                ApplicationBar.Buttons.Add(_openButton);
-                ApplicationBar.Buttons.Add(_undoButton);
-                ApplicationBar.Buttons.Add(_resetButton);
-                ApplicationBar.Buttons.Add(_acceptButton);
-            }
+            _openButton.Click += OpenButton_Click;
+            _undoButton.Click += UndoButton_Click;
+            _resetButton.Click += ResetButton_Click;
+            _acceptButton.Click += AcceptButton_Click;
+            _cursorMenuItem.Click += CursorMenuItem_Click;
+
+            ApplicationBar.Buttons.Add(_openButton);
+            ApplicationBar.Buttons.Add(_undoButton);
+            ApplicationBar.Buttons.Add(_resetButton);
+            ApplicationBar.Buttons.Add(_acceptButton);
+            ApplicationBar.MenuItems.Add(_cursorMenuItem);
+        }
+
+        private void CursorMenuItem_Click(object sender, EventArgs e)
+        {
+            Model.CursorEnabled = !Model.CursorEnabled;
+
+            AdaptButtonsToState();
         }
 
         private void OriginalImage_LayoutUpdated(object sender, EventArgs e)
@@ -223,6 +235,7 @@ namespace SegmenterPoc
             _undoButton.IsEnabled = AnnotationsDrawn;
             _resetButton.IsEnabled = AnnotationsDrawn;
             _acceptButton.IsEnabled = ForegroundAnnotationsDrawn && BackgroundAnnotationsDrawn;
+            _cursorMenuItem.Text = Model.CursorEnabled ? AppResources.SegmenterPage_DisableCursorMenuItem : AppResources.SegmenterPage_EnableCursorMenuItem;
 
             if (Model.OriginalImage != null)
             {
@@ -258,7 +271,7 @@ namespace SegmenterPoc
             };
 
             var manipulationAreaDeltaX = ManipulationArea.Margin.Left;
-            var manipulationAreaDeltaY = ManipulationArea.Margin.Top + _cursorDeltaY;
+            var manipulationAreaDeltaY = ManipulationArea.Margin.Top + (Model.CursorEnabled ? _cursorDeltaY : 0);
 
             var point = NearestPointInElement(e.ManipulationOrigin.X + manipulationAreaDeltaX, e.ManipulationOrigin.Y + manipulationAreaDeltaY, AnnotationsCanvas);
 
@@ -272,13 +285,16 @@ namespace SegmenterPoc
                 Y = point.Y
             };
 
-            Cursor.Visibility = Visibility.Visible;
+            if (Model.CursorEnabled)
+            {
+                Cursor.Visibility = Visibility.Visible;
+            }
         }
 
         private void AnnotationsCanvas_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
         {
             var manipulationAreaDeltaX = ManipulationArea.Margin.Left;
-            var manipulationAreaDeltaY = ManipulationArea.Margin.Top + _cursorDeltaY;
+            var manipulationAreaDeltaY = ManipulationArea.Margin.Top + (Model.CursorEnabled ? _cursorDeltaY : 0);
 
             var x = e.ManipulationOrigin.X + e.DeltaManipulation.Translation.X + manipulationAreaDeltaX;
             var y = e.ManipulationOrigin.Y + e.DeltaManipulation.Translation.Y + manipulationAreaDeltaY;

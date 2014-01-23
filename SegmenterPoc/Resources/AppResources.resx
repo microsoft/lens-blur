@@ -179,4 +179,10 @@
   <data name="SegmenterPage_UndoButton" xml:space="preserve">
     <value>undo</value>
   </data>
+  <data name="SegmenterPage_DisableCursorMenuItem" xml:space="preserve">
+    <value>disable drawing cursor</value>
+  </data>
+  <data name="SegmenterPage_EnableCursorMenuItem" xml:space="preserve">
+    <value>enable drawing cursor</value>
+  </data>
 </root>

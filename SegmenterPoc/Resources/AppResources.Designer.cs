@@ -196,6 +196,24 @@ namespace SegmenterPoc.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to disable drawing cursor.
+        /// </summary>
+        public static string SegmenterPage_DisableCursorMenuItem {
+            get {
+                return ResourceManager.GetString("SegmenterPage_DisableCursorMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enable drawing cursor.
+        /// </summary>
+        public static string SegmenterPage_EnableCursorMenuItem {
+            get {
+                return ResourceManager.GetString("SegmenterPage_EnableCursorMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to foreground.
         /// </summary>
         public static string SegmenterPage_ForegroundButton {
