@@ -1,0 +1,192 @@
+﻿<!--
+    Copyright (c) 2014 Nokia Corporation. All rights reserved.
+    
+    Nokia and Nokia Connecting People are registered trademarks of Nokia Corporation.
+    Other product and company names mentioned herein may be trademarks
+    or trade names of their respective owners.
+    
+    See the license text file for license information.
+-->
+
+<phone:PhoneApplicationPage
+    x:Class="SegmenterPoc.Pages.EffectPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False">
+
+    <!--Toolkit page transititions-->
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"
+                       Text="{Binding Path=LocalizedResources.Application_Title, Source={StaticResource LocalizedStrings}}"/>
+            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"
+                       Text="{Binding Path=LocalizedResources.EffectPage_Title, Source={StaticResource LocalizedStrings}}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image x:Name="PreviewImage" MaxWidth="456" MaxHeight="490"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                <Button x:Name="CircleButton" Click="CircleButton_Click" BorderThickness="2">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneForegroundBrush}" Width="40" Height="40">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Assets/Graphics/Circle.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Grid.Row="1" FontSize="12" TextAlignment="Center"
+                                       Text="{Binding Path=LocalizedResources.EffectPage_CircleLabel, Source={StaticResource LocalizedStrings}}"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="HexagonButton" Click="HexagonButton_Click" BorderThickness="2">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneForegroundBrush}" Width="40" Height="40">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Assets/Graphics/Hexagon.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Grid.Row="1" FontSize="12" TextAlignment="Center"
+                                       Text="{Binding Path=LocalizedResources.EffectPage_HexagonLabel, Source={StaticResource LocalizedStrings}}"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="FlowerButton" Click="FlowerButton_Click" BorderThickness="2">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneForegroundBrush}" Width="40" Height="40">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Assets/Graphics/Flower.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Grid.Row="1" FontSize="12" TextAlignment="Center"
+                                       Text="{Binding Path=LocalizedResources.EffectPage_FlowerLabel, Source={StaticResource LocalizedStrings}}"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="StarButton" Click="StarButton_Click" BorderThickness="2">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneForegroundBrush}" Width="40" Height="40">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Assets/Graphics/Star.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Grid.Row="1" FontSize="12" TextAlignment="Center"
+                                       Text="{Binding Path=LocalizedResources.EffectPage_StarLabel, Source={StaticResource LocalizedStrings}}"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="HeartButton" Click="HeartButton_Click" BorderThickness="2">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneForegroundBrush}" Width="40" Height="40">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush ImageSource="/Assets/Graphics/Heart.png" />
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Grid.Row="1" FontSize="12" TextAlignment="Center"
+                                       Text="{Binding Path=LocalizedResources.EffectPage_HeartLabel, Source={StaticResource LocalizedStrings}}"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <Slider x:Name="SizeSlider" Minimum="1" Maximum="100" Value="50" Margin="0,0,0,-56" SmallChange="1"/>
+                
+                <TextBlock Grid.Row="1"  HorizontalAlignment="Left" Margin="12" Style="{StaticResource PhoneTextSmallStyle}"
+                           Text="{Binding Path=LocalizedResources.EffectPage_MinimumLabel, Source={StaticResource LocalizedStrings}}"/>
+                
+                <TextBlock Grid.Row="1"  HorizontalAlignment="Center" Margin="12" Style="{StaticResource PhoneTextSmallStyle}"
+                           Text="{Binding Path=LocalizedResources.EffectPage_SizeLabel, Source={StaticResource LocalizedStrings}}"/>
+                
+                <TextBlock Grid.Row="1" HorizontalAlignment="Right" Margin="12" Style="{StaticResource PhoneTextSmallStyle}"
+                           Text="{Binding Path=LocalizedResources.EffectPage_MaximumLabel, Source={StaticResource LocalizedStrings}}"/>
+            </Grid>
+        </Grid>
+
+        <ProgressBar x:Name="ProgressBar" Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
+    </Grid>
+    
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
