@@ -204,6 +204,8 @@ namespace SegmenterPoc.Pages
             {
                 Processing = true;
 
+                GC.Collect();
+
                 var lowMemory = false;
 
                 try
