@@ -179,12 +179,6 @@
   <data name="SegmenterPage_UndoButton" xml:space="preserve">
     <value>undo</value>
   </data>
-  <data name="SegmenterPage_DisableCursorMenuItem" xml:space="preserve">
-    <value>disable drawing cursor</value>
-  </data>
-  <data name="SegmenterPage_EnableCursorMenuItem" xml:space="preserve">
-    <value>enable drawing cursor</value>
-  </data>
   <data name="AboutPage_AboutText" xml:space="preserve">
     <value>Lens Blur is an example application on how to use Nokia Imaging SDK InteractiveForegroundSegmenter and the LensBlurEffect to blur only selected areas of images.</value>
   </data>

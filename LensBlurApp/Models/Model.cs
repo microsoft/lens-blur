@@ -69,6 +69,5 @@ namespace LensBlurApp.Models
         public static LensBlurPredefinedKernelShape KernelShape { get; set; }
         public static double KernelSize { get; set; }
         public static bool Saved { get; set; }
-        public static bool CursorEnabled { get; set; }
     }
 }
