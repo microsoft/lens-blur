@@ -1,6 +1,6 @@
-﻿using SegmenterPoc.Resources;
+﻿using LensBlurApp.Resources;
 
-namespace SegmenterPoc
+namespace LensBlurApp
 {
     /// <summary>
     /// Provides access to string resources.

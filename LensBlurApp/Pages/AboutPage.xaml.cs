@@ -8,16 +8,13 @@
  * See the license text file for license information.
  */
 
-using SegmenterPoc.Resources;
+using LensBlurApp.Resources;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Tasks;
 using System;
-using System.Windows;
 using System.Windows.Documents;
-using System.Windows.Media;
 using System.Xml.Linq;
 
-namespace SegmenterPoc.Pages
+namespace LensBlurApp.Pages
 {
     public partial class AboutPage : PhoneApplicationPage
     {

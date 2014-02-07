@@ -10,14 +10,14 @@
 
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using SegmenterPoc.Resources;
+using LensBlurApp.Resources;
 using System;
 using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
 
-namespace SegmenterPoc
+namespace LensBlurApp
 {
     public partial class App : Application
     {

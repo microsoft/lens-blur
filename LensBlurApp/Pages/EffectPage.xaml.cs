@@ -8,15 +8,14 @@
  * See the license text file for license information.
  */
 
+using LensBlurApp.Models;
+using LensBlurApp.Resources;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Info;
 using Microsoft.Phone.Shell;
 using Microsoft.Xna.Framework.Media;
 using Nokia.Graphics.Imaging;
-using SegmenterPoc.Models;
-using SegmenterPoc.Resources;
 using System;
-using System.IO;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows;
 using System.Windows.Media;
@@ -24,7 +23,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using Windows.Storage.Streams;
 
-namespace SegmenterPoc.Pages
+namespace LensBlurApp.Pages
 {
     public partial class EffectPage : PhoneApplicationPage
     {

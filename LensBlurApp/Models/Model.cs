@@ -12,7 +12,7 @@ using Nokia.Graphics.Imaging;
 using System.IO;
 using System.Windows.Media;
 
-namespace SegmenterPoc.Models
+namespace LensBlurApp.Models
 {
     public class Model
     {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Phone
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SegmenterPoc", "SegmenterPoc\SegmenterPoc.csproj", "{FD5FFCF8-4A44-4E47-AFF5-CBA8FD5C777A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LensBlurApp", "LensBlurApp\LensBlurApp.csproj", "{FD5FFCF8-4A44-4E47-AFF5-CBA8FD5C777A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

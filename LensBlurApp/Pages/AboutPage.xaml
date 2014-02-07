@@ -9,7 +9,7 @@
 -->
 
 <phone:PhoneApplicationPage
-    x:Class="SegmenterPoc.MainPage"
+    x:Class="LensBlurApp.Pages.AboutPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -17,11 +17,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
     shell:SystemTray.IsVisible="False">
 
     <!--Toolkit page transititions-->
@@ -54,57 +54,19 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"
-                       Text="{Binding Path=LocalizedResources.Application_Title, Source={StaticResource LocalizedStrings}}"/>
-            <TextBlock Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"
-                       Text="{Binding Path=LocalizedResources.SegmenterPage_Title, Source={StaticResource LocalizedStrings}}"/>
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{Binding Path=LocalizedResources.Application_Title, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.AboutPage_Title, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,50">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Image x:Name="OriginalImage" Stretch="Uniform" MaxWidth="456" MaxHeight="490"/>
-                <Image x:Name="MaskImage" Opacity="0.625" Stretch="Uniform"/>
-                <Canvas x:Name="AnnotationsCanvas"/>
-                <Canvas x:Name="CurrentAnnotationCanvas"/>
-                <Border x:Name="Cursor" BorderBrush="White" CornerRadius="90" BorderThickness="2"
-                        Width="12" Height="10" Margin="-5,-5" Visibility="Collapsed"
-                        HorizontalAlignment="Left" VerticalAlignment="Top" CacheMode="BitmapCache"/>
-                <Grid x:Name="ManipulationArea" Background="Transparent" Margin="-75"/>
-            </Grid>
-
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Button x:Name="ForegroundButton" Click="ForegroundButton_Click" IsEnabled="False"
-                        Content="{Binding Path=LocalizedResources.SegmenterPage_ForegroundButton, Source={StaticResource LocalizedStrings}}" />
-                
-                <Button x:Name="BackgroundButton" Grid.Column="1" Click="BackgroundButton_Click" IsEnabled="False"
-                        Content="{Binding Path=LocalizedResources.SegmenterPage_BackgroundButton, Source={StaticResource LocalizedStrings}}" />
-            </Grid>
+            <RichTextBox VerticalAlignment="Top">
+                <Paragraph x:Name="VersionParagraph"/>
+                <Paragraph x:Name="AboutParagraph"/>
+                <Paragraph x:Name="GuideParagraph"/>
+            </RichTextBox>
         </Grid>
-        
-        <ProgressBar x:Name="ProgressBar" Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
     </Grid>
 
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar/>
-    </phone:PhoneApplicationPage.ApplicationBar>
-    
 </phone:PhoneApplicationPage>
