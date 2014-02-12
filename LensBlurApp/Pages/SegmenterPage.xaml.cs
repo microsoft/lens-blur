@@ -278,8 +278,8 @@ namespace LensBlurApp.Pages
             var manipulationAreaDeltaX = ManipulationArea.Margin.Left;
             var manipulationAreaDeltaY = ManipulationArea.Margin.Top;
 
-            var x = e.ManipulationOrigin.X + e.DeltaManipulation.Translation.X + manipulationAreaDeltaX;
-            var y = e.ManipulationOrigin.Y + e.DeltaManipulation.Translation.Y + manipulationAreaDeltaY;
+            var x = e.ManipulationOrigin.X - e.DeltaManipulation.Translation.X + manipulationAreaDeltaX;
+            var y = e.ManipulationOrigin.Y - e.DeltaManipulation.Translation.Y + manipulationAreaDeltaY;
 
             var point = NearestPointInElement(x, y, AnnotationsCanvas);
 
