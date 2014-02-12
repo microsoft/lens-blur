@@ -27,11 +27,11 @@ namespace LensBlurApp.Pages
 {
     public partial class EffectPage : PhoneApplicationPage
     {
-        private bool _processing = false;
-        private bool _processingPending = false;
+        private bool _processing;
+        private bool _processingPending;
         private LensBlurPredefinedKernelShape _shape = LensBlurPredefinedKernelShape.Circle;
-        private ApplicationBarIconButton _saveButton = null;
-        private ApplicationBarMenuItem _aboutMenuItem = null;
+        private ApplicationBarIconButton _saveButton;
+        private ApplicationBarMenuItem _aboutMenuItem;
 
         private bool Processing
         {
@@ -63,13 +63,13 @@ namespace LensBlurApp.Pages
 
         private void CreateButtons()
         {
-            _saveButton = new ApplicationBarIconButton()
+            _saveButton = new ApplicationBarIconButton
             {
                 Text = AppResources.EffectPage_SaveButton,
                 IconUri = new Uri("Assets/Icons/Save.png", UriKind.Relative),
             };
 
-            _aboutMenuItem = new ApplicationBarMenuItem()
+            _aboutMenuItem = new ApplicationBarMenuItem
             {
                 Text = AppResources.Application_AboutMenuItem
             };
@@ -156,10 +156,10 @@ namespace LensBlurApp.Pages
                 Model.OriginalImage.Position = 0;
 
                 using (var source = new StreamImageSource(Model.OriginalImage))
-                using (var segmenter = new Nokia.Graphics.Imaging.InteractiveForegroundSegmenter(source))
+                using (var segmenter = new InteractiveForegroundSegmenter(source))
                 using (var annotationsSource = new BitmapImageSource(Model.AnnotationsBitmap))
                 {
-                    segmenter.IsPreview = true;
+                    segmenter.Quality = 0.5;
                     segmenter.AnnotationsSource = annotationsSource;
 
                     var foregroundColor = Model.ForegroundBrush.Color;
@@ -217,7 +217,7 @@ namespace LensBlurApp.Pages
                 {
                 }
 
-                IBuffer buffer = null;
+                IBuffer buffer;
 
                 Model.OriginalImage.Position = 0;
 
@@ -225,7 +225,7 @@ namespace LensBlurApp.Pages
                 using (var segmenter = new InteractiveForegroundSegmenter(source))
                 using (var annotationsSource = new BitmapImageSource(Model.AnnotationsBitmap))
                 {
-                    segmenter.IsPreview = lowMemory;
+                    segmenter.Quality = lowMemory ? 0.5 : 1;
                     segmenter.AnnotationsSource = annotationsSource;
 
                     var foregroundColor = Model.ForegroundBrush.Color;

@@ -18,8 +18,8 @@ namespace LensBlurApp.Models
     {
         // TODO: Tombstoning support
 
-        private static Stream _originalImageStream = null;
-        private static Bitmap _annotationsBitmap = null;
+        private static Stream _originalImageStream;
+        private static Bitmap _annotationsBitmap;
 
         public static readonly SolidColorBrush ForegroundBrush = new SolidColorBrush(Colors.Red);
         public static readonly SolidColorBrush BackgroundBrush = new SolidColorBrush(Colors.Blue);

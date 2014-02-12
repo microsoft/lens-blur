@@ -9,7 +9,7 @@
 -->
 
 <phone:PhoneApplicationPage
-    x:Class="LensBlurApp.MainPage"
+    x:Class="LensBlurApp.Pages.SegmenterPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -97,7 +97,7 @@
             </Grid>
         </Grid>
         
-        <ProgressBar x:Name="ProgressBar" Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
+        <ProgressBar x:Name="ProgressBar" Grid.Row="1" Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

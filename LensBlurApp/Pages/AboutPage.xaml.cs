@@ -24,18 +24,31 @@ namespace LensBlurApp.Pages
 
             // Application version number
 
-            var version = XDocument.Load("WMAppManifest.xml").Root.Element("App").Attribute("Version").Value;
-
-            var versionRun = new Run()
+            var xElement = XDocument.Load("WMAppManifest.xml").Root;
+            
+            if (xElement != null)
             {
-                Text = String.Format(AppResources.AboutPage_VersionText, version) + "\n"
-            };
+                var element = xElement.Element("App");
+                if (element != null)
+                {
+                    var xAttribute = element.Attribute("Version");
+                    if (xAttribute != null)
+                    {
+                        var version = xAttribute.Value;
 
-            VersionParagraph.Inlines.Add(versionRun);
+                        var versionRun = new Run
+                        {
+                            Text = String.Format(AppResources.AboutPage_VersionText, version) + "\n"
+                        };
+
+                        VersionParagraph.Inlines.Add(versionRun);
+                    }
+                }
+            }
 
             // Application about text
 
-            var aboutRun = new Run()
+            var aboutRun = new Run
             {
                 Text = AppResources.AboutPage_AboutText + "\n"
             };
@@ -44,7 +57,7 @@ namespace LensBlurApp.Pages
 
             // Application guide text
 
-            var guideRun = new Run()
+            var guideRun = new Run
             {
                 Text = AppResources.AboutPage_GuideText + "\n"
             };

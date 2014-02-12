@@ -131,6 +131,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Help\Nokia Imaging SDK.chm" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
@@ -170,9 +171,9 @@
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
-    <Reference Include="Nokia.Graphics.Imaging.Managed, Version=1.1.103.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Nokia.Graphics.Imaging.Managed, Version=1.1.163.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NokiaImagingSDK.1.1.103-beta\lib\wp8\Nokia.Graphics.Imaging.Managed.dll</HintPath>
+      <HintPath>..\packages\NokiaImagingSDK.1.1.163-beta\lib\wp8\Nokia.Graphics.Imaging.Managed.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
@@ -185,5 +186,5 @@
   </Target>
   -->
   <ProjectExtensions />
-  <Import Project="..\packages\NokiaImagingSDK.1.1.103-beta\build\wp8\NokiaImagingSDK.targets" Condition="Exists('..\packages\NokiaImagingSDK.1.1.103-beta\build\wp8\NokiaImagingSDK.targets')" />
+  <Import Project="..\packages\NokiaImagingSDK.1.1.163-beta\build\wp8\NokiaImagingSDK.targets" Condition="Exists('..\packages\NokiaImagingSDK.1.1.163-beta\build\wp8\NokiaImagingSDK.targets')" />
 </Project>

@@ -78,7 +78,7 @@ namespace LensBlurApp
         {
             if (!e.IsApplicationInstancePreserved)
             {
-                System.Diagnostics.Debug.WriteLine("Warning: Application tombstoning has not been implemented!");
+                Debug.WriteLine("Warning: Application tombstoning has not been implemented!");
             }
         }
 
@@ -117,12 +117,12 @@ namespace LensBlurApp
         #region Phone application initialization
 
         // Avoid double-initialization
-        private bool phoneApplicationInitialized = false;
+        private bool _phoneApplicationInitialized;
 
         // Do not add any additional code to this method
         private void InitializePhoneApplication()
         {
-            if (phoneApplicationInitialized)
+            if (_phoneApplicationInitialized)
                 return;
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
@@ -137,7 +137,7 @@ namespace LensBlurApp
             RootFrame.Navigated += CheckForResetNavigation;
 
             // Ensure we don't initialize again
-            phoneApplicationInitialized = true;
+            _phoneApplicationInitialized = true;
         }
 
         // Do not add any additional code to this method
@@ -214,7 +214,7 @@ namespace LensBlurApp
                 //
                 // If a compiler error is hit then ResourceFlowDirection is missing from
                 // the resource file.
-                FlowDirection flow = (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
+                var flow = (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
                 RootFrame.FlowDirection = flow;
             }
             catch

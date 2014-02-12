@@ -8,6 +8,7 @@
  * See the license text file for license information.
  */
 
+using System.Linq;
 using LensBlurApp.Models;
 using LensBlurApp.Resources;
 using Microsoft.Phone.Controls;
@@ -22,22 +23,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LensBlurApp
+namespace LensBlurApp.Pages
 {
-    public partial class MainPage : PhoneApplicationPage
+    public partial class SegmenterPage : PhoneApplicationPage
     {
         private PhotoChooserTask _task = new PhotoChooserTask();
-        private SolidColorBrush _brush = null;
-        private System.Windows.Shapes.Polyline _polyline = null;
-        private bool _processing = false;
-        private bool _processingPending = false;
-        private ApplicationBarIconButton _openButton = null;
-        private ApplicationBarIconButton _undoButton = null;
-        private ApplicationBarIconButton _resetButton = null;
-        private ApplicationBarIconButton _acceptButton = null;
-        private ApplicationBarMenuItem _aboutMenuItem = null;
-        private PhotoResult _photoResult = null;
-        private bool _manipulating = false;
+        private SolidColorBrush _brush;
+        private Polyline _polyline;
+        private bool _processing;
+        private bool _processingPending;
+        private ApplicationBarIconButton _openButton;
+        private ApplicationBarIconButton _undoButton;
+        private ApplicationBarIconButton _resetButton;
+        private ApplicationBarIconButton _acceptButton;
+        private ApplicationBarMenuItem _aboutMenuItem;
+        private PhotoResult _photoResult;
+        private bool _manipulating;
 
         private bool Processing
         {
@@ -70,15 +71,7 @@ namespace LensBlurApp
         {
             get
             {
-                foreach (Polyline p in AnnotationsCanvas.Children)
-                {
-                    if (p.Stroke == Model.ForegroundBrush)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
+                return AnnotationsCanvas.Children.Cast<Polyline>().Any(p => p.Stroke == Model.ForegroundBrush);
             }
         }
 
@@ -86,19 +79,11 @@ namespace LensBlurApp
         {
             get
             {
-                foreach (Polyline p in AnnotationsCanvas.Children)
-                {
-                    if (p.Stroke == Model.BackgroundBrush)
-                    {
-                        return true; 
-                    }
-                }
-
-                return false;
+                return AnnotationsCanvas.Children.Cast<Polyline>().Any(p => p.Stroke == Model.BackgroundBrush);
             }
         }
 
-        public MainPage()
+        public SegmenterPage()
         {
             InitializeComponent();
 
@@ -112,31 +97,31 @@ namespace LensBlurApp
 
         private void CreateButtons()
         {
-            _openButton = new ApplicationBarIconButton()
+            _openButton = new ApplicationBarIconButton
             {
                 Text = AppResources.SegmenterPage_OpenButton,
                 IconUri = new Uri("Assets/Icons/Folder.png", UriKind.Relative),
             };
 
-            _undoButton = new ApplicationBarIconButton()
+            _undoButton = new ApplicationBarIconButton
             {
                 Text = AppResources.SegmenterPage_UndoButton,
                 IconUri = new Uri("Assets/Icons/Undo.png", UriKind.Relative),
             };
 
-            _resetButton = new ApplicationBarIconButton()
+            _resetButton = new ApplicationBarIconButton
             {
                 Text = AppResources.SegmenterPage_ResetButton,
                 IconUri = new Uri("Assets/Icons/Delete.png", UriKind.Relative),
             };
 
-            _acceptButton = new ApplicationBarIconButton()
+            _acceptButton = new ApplicationBarIconButton
             {
                 Text = AppResources.SegmenterPage_AcceptButton,
                 IconUri = new Uri("Assets/Icons/Check.png", UriKind.Relative),
             };
 
-            _aboutMenuItem = new ApplicationBarMenuItem()
+            _aboutMenuItem = new ApplicationBarMenuItem
             {
                 Text = AppResources.Application_AboutMenuItem
             };
@@ -190,9 +175,9 @@ namespace LensBlurApp
                     _brush = Model.ForegroundBrush;
                 }
 
-                var originalBitmap = new BitmapImage()
+                var originalBitmap = new BitmapImage
                 {
-                    DecodePixelWidth = (int)(480.0 * App.Current.Host.Content.ScaleFactor / 100.0)
+                    DecodePixelWidth = (int)(480.0 * Application.Current.Host.Content.ScaleFactor / 100.0)
                 };
 
                 Model.OriginalImage.Position = 0;
@@ -272,7 +257,7 @@ namespace LensBlurApp
         {
             _manipulating = true;
 
-            _polyline = new System.Windows.Shapes.Polyline()
+            _polyline = new Polyline
             {
                 Stroke = _brush,
                 StrokeThickness = 6
@@ -387,7 +372,7 @@ namespace LensBlurApp
                         var maskBitmap = new WriteableBitmap((int)AnnotationsCanvas.ActualWidth, (int)AnnotationsCanvas.ActualHeight);
                         var annotationsBitmap = new WriteableBitmap((int)AnnotationsCanvas.ActualWidth, (int)AnnotationsCanvas.ActualHeight);
 
-                        annotationsBitmap.Render(AnnotationsCanvas, new ScaleTransform()
+                        annotationsBitmap.Render(AnnotationsCanvas, new ScaleTransform
                         {
                             ScaleX = 1,
                             ScaleY = 1
@@ -398,7 +383,7 @@ namespace LensBlurApp
                         Model.OriginalImage.Position = 0;
 
                         using (var source = new StreamImageSource(Model.OriginalImage))
-                        using (var segmenter = new Nokia.Graphics.Imaging.InteractiveForegroundSegmenter(source))
+                        using (var segmenter = new InteractiveForegroundSegmenter(source))
                         using (var renderer = new WriteableBitmapRenderer(segmenter, maskBitmap))
                         using (var annotationsSource = new BitmapImageSource(annotationsBitmap.AsBitmap()))
                         {
@@ -407,7 +392,7 @@ namespace LensBlurApp
 
                             segmenter.ForegroundColor = Windows.UI.Color.FromArgb(foregroundColor.A, foregroundColor.R, foregroundColor.G, foregroundColor.B);
                             segmenter.BackgroundColor = Windows.UI.Color.FromArgb(backgroundColor.A, backgroundColor.R, backgroundColor.G, backgroundColor.B);
-                            segmenter.IsPreview = true;
+                            segmenter.Quality = 0.5;
                             segmenter.AnnotationsSource = annotationsSource;
 
                             await renderer.RenderAsync();
