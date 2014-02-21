@@ -87,10 +87,10 @@ Downloads
 
 | Project | Release | Download |
 | ------- | --------| -------- |
-| Lens Blur | v0.3 | [lens-blur-0.3.zip](https://github.com/nokia-developer/lens-blur/archive/v0.3.zip) |
+| Lens Blur | v1.0 | [lens-blur-1.0.zip](https://github.com/nokia-developer/lens-blur/archive/v1.0.zip) |
 
 
 Version history
 ---------------
 
-No public releases yet.
+ * 1.0.0.0: First public release of Lens Blur
