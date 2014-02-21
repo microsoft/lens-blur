@@ -31,6 +31,7 @@ namespace LensBlurApp.Pages
         private bool _processingPending;
         private LensBlurPredefinedKernelShape _shape = LensBlurPredefinedKernelShape.Circle;
         private ApplicationBarIconButton _saveButton;
+        private ApplicationBarMenuItem _helpMenuItem;
         private ApplicationBarMenuItem _aboutMenuItem;
 
         private bool Processing
@@ -69,21 +70,33 @@ namespace LensBlurApp.Pages
                 IconUri = new Uri("Assets/Icons/Save.png", UriKind.Relative),
             };
 
+            _helpMenuItem = new ApplicationBarMenuItem
+            {
+                Text = AppResources.Application_HelpMenuItem
+            };
+
             _aboutMenuItem = new ApplicationBarMenuItem
             {
                 Text = AppResources.Application_AboutMenuItem
             };
 
             _saveButton.Click += SaveButton_Click;
+            _helpMenuItem.Click += HelpMenuItem_Click;
             _aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.Buttons.Add(_saveButton);
+            ApplicationBar.MenuItems.Add(_helpMenuItem);
             ApplicationBar.MenuItems.Add(_aboutMenuItem);
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             AttemptSave();
+        }
+
+        private void HelpMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/HelpPage.xaml", UriKind.Relative));
         }
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
