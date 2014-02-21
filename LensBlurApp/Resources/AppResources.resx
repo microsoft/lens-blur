@@ -192,7 +192,7 @@
     <value>about</value>
   </data>
   <data name="Application_HelpMenuItem" xml:space="preserve">
-    <value>usage guide</value>
+    <value>help</value>
   </data>
   <data name="HelpPage_EffectGuideText" xml:space="preserve">
     <value>When you're ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second second, try out different blur kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections.</value>
@@ -204,7 +204,7 @@
     <value>First step is to mark the image foreground and background areas by drawing annotations on the image using two different colors. Notice that it is not necessary to paint the whole areas, but only to give hints to the interactive foreground segmenter. Based on your annotations, the preview is automatically updated to show the generated foreground/background segmentation.</value>
   </data>
   <data name="HelpPage_Title" xml:space="preserve">
-    <value>usage guide</value>
+    <value>help</value>
   </data>
   <data name="HelpPage_OpenGuideText" xml:space="preserve">
     <value>This application allows you to create bokeh style lens blur effect on images. This means that you can keep certain areas of an image sharp (in focus) while applying a blur effect on rest of the image (out of focus). To get started with this, you must first open an image from the Photos gallery by tapping on the open icon in the application bar in this application.</value>
@@ -212,6 +212,6 @@
   <data name="SegmenterPage_GuideText" xml:space="preserve">
     <value>To begin, open an image from the Photos gallery by tapping on the open icon in the application bar.
 
-For detailed usage guide, select "usage guide" from the application menu.</value>
+For detailed guide on how to use this application, select "help" from the application menu.</value>
   </data>
 </root>

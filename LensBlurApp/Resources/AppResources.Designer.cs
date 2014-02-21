@@ -97,7 +97,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to usage guide.
+        ///   Looks up a localized string similar to help.
         /// </summary>
         public static string Application_HelpMenuItem {
             get {
@@ -241,7 +241,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to usage guide.
+        ///   Looks up a localized string similar to help.
         /// </summary>
         public static string HelpPage_Title {
             get {
@@ -297,7 +297,7 @@ namespace LensBlurApp.Resources {
         /// <summary>
         ///   Looks up a localized string similar to To begin, open an image from the Photos gallery by tapping on the open icon in the application bar.
         ///
-        ///For detailed usage guide, select &quot;usage guide&quot; from the application menu..
+        ///For detailed guide on how to use this application, select &quot;help&quot; from the application menu..
         /// </summary>
         public static string SegmenterPage_GuideText {
             get {
