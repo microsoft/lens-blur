@@ -10,8 +10,11 @@
 
 using LensBlurApp.Resources;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using System;
+using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Media;
 using System.Xml.Linq;
 
 namespace LensBlurApp.Pages
@@ -54,6 +57,44 @@ namespace LensBlurApp.Pages
             };
 
             AboutParagraph.Inlines.Add(aboutRun);
+
+            // Application disclaimer text
+
+            var disclaimerRun = new Run
+            {
+                Text = AppResources.AboutPage_DisclaimerText + "\n"
+            };
+
+            DisclaimerParagraph.Inlines.Add(disclaimerRun);
+
+            // Link to project website
+
+            var projectRunText = AppResources.AboutPage_ProjectRun_Text;
+            var projectRunTextSpans = projectRunText.Split(new string[] { "{0}" }, StringSplitOptions.None);
+
+            var projectRunSpan1 = new Run();
+            projectRunSpan1.Text = projectRunTextSpans[0];
+
+            var projectLink = new Hyperlink();
+            projectLink.Inlines.Add(AppResources.AboutPage_Hyperlink_Project_Text);
+            projectLink.Click += ProjectLink_Click;
+
+            var projectRunSpan2 = new Run();
+            projectRunSpan2.Text = projectRunTextSpans[1] + "\n";
+
+            ProjectParagraph.Inlines.Add(projectRunSpan1);
+            ProjectParagraph.Inlines.Add(projectLink);
+            ProjectParagraph.Inlines.Add(projectRunSpan2);
+        }
+
+        private void ProjectLink_Click(object sender, RoutedEventArgs e)
+        {
+            var webBrowserTask = new WebBrowserTask()
+            {
+                Uri = new Uri(AppResources.AboutPage_Hyperlink_Project_Url, UriKind.Absolute)
+            };
+
+            webBrowserTask.Show();
         }
     }
 }

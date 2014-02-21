@@ -64,6 +64,8 @@
             <RichTextBox VerticalAlignment="Top">
                 <Paragraph x:Name="VersionParagraph"/>
                 <Paragraph x:Name="AboutParagraph"/>
+                <Paragraph x:Name="DisclaimerParagraph"/>
+                <Paragraph x:Name="ProjectParagraph"/>
             </RichTextBox>
         </Grid>
     </Grid>

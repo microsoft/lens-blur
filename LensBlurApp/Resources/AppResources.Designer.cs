@@ -61,11 +61,47 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lens Blur is an example application on how to use Nokia Imaging SDK interactive foreground segmenter and the lens blur effect to blur only selected areas of images..
+        ///   Looks up a localized string similar to Lens Blur is a developer example application on how to use Nokia Imaging SDK interactive foreground segmenter and the lens blur effect to blur only selected areas of images..
         /// </summary>
         public static string AboutPage_AboutText {
             get {
                 return ResourceManager.GetString("AboutPage_AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This Nokia developer example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Nokia phone users. The source code and documentation of this example can be downloaded from Nokia Developer website..
+        /// </summary>
+        public static string AboutPage_DisclaimerText {
+            get {
+                return ResourceManager.GetString("AboutPage_DisclaimerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nokia Developer website.
+        /// </summary>
+        public static string AboutPage_Hyperlink_Project_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_Project_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://developer.nokia.com.
+        /// </summary>
+        public static string AboutPage_Hyperlink_Project_Url {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_Project_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.
+        /// </summary>
+        public static string AboutPage_ProjectRun_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_ProjectRun_Text", resourceCulture);
             }
         }
         
@@ -205,7 +241,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When you&apos;re ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second second, try out different blur kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections..
+        ///   Looks up a localized string similar to When you&apos;re ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second step, try out different lens blur effect kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections..
         /// </summary>
         public static string HelpPage_EffectGuideText {
             get {
