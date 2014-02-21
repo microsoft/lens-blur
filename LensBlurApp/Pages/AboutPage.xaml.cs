@@ -54,15 +54,6 @@ namespace LensBlurApp.Pages
             };
 
             AboutParagraph.Inlines.Add(aboutRun);
-
-            // Application guide text
-
-            var guideRun = new Run
-            {
-                Text = AppResources.AboutPage_GuideText + "\n"
-            };
-
-            GuideParagraph.Inlines.Add(guideRun);
         }
     }
 }

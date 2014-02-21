@@ -36,6 +36,7 @@ namespace LensBlurApp.Pages
         private ApplicationBarIconButton _undoButton;
         private ApplicationBarIconButton _resetButton;
         private ApplicationBarIconButton _acceptButton;
+        private ApplicationBarMenuItem _helpMenuItem;
         private ApplicationBarMenuItem _aboutMenuItem;
         private PhotoResult _photoResult;
         private bool _manipulating;
@@ -121,6 +122,11 @@ namespace LensBlurApp.Pages
                 IconUri = new Uri("Assets/Icons/Check.png", UriKind.Relative),
             };
 
+            _helpMenuItem = new ApplicationBarMenuItem
+            {
+                Text = AppResources.Application_HelpMenuItem
+            };
+
             _aboutMenuItem = new ApplicationBarMenuItem
             {
                 Text = AppResources.Application_AboutMenuItem
@@ -130,13 +136,20 @@ namespace LensBlurApp.Pages
             _undoButton.Click += UndoButton_Click;
             _resetButton.Click += ResetButton_Click;
             _acceptButton.Click += AcceptButton_Click;
+            _helpMenuItem.Click += HelpMenuItem_Click;
             _aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.Buttons.Add(_openButton);
             ApplicationBar.Buttons.Add(_undoButton);
             ApplicationBar.Buttons.Add(_resetButton);
             ApplicationBar.Buttons.Add(_acceptButton);
+            ApplicationBar.MenuItems.Add(_helpMenuItem);
             ApplicationBar.MenuItems.Add(_aboutMenuItem);
+        }
+
+        private void HelpMenuItem_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/HelpPage.xaml", UriKind.Relative));
         }
 
         private void AboutMenuItem_Click(object sender, EventArgs e)
@@ -237,11 +250,15 @@ namespace LensBlurApp.Pages
 
                 ForegroundButton.Background = _brush == Model.ForegroundBrush ? Model.ForegroundBrush : null;
                 BackgroundButton.Background = _brush == Model.BackgroundBrush ? Model.BackgroundBrush : null;
+
+                GuideTextBlock.Visibility = Visibility.Collapsed;
             }
             else
             {
                 ForegroundButton.IsEnabled = false;
                 BackgroundButton.IsEnabled = false;
+
+                GuideTextBlock.Visibility = Visibility.Visible;
             }
         }
 

@@ -100,6 +100,9 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\HelpPage.xaml.cs">
+      <DependentUpon>HelpPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\EffectPage.xaml.cs">
       <DependentUpon>EffectPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,9 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Pages\AboutPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\HelpPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\EffectPage.xaml">
@@ -143,9 +149,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Graphics\Circle.png" />
+    <Content Include="Assets\Graphics\EffectGuide.png" />
     <Content Include="Assets\Graphics\Flower.png" />
     <Content Include="Assets\Graphics\Heart.png" />
     <Content Include="Assets\Graphics\Hexagon.png" />
+    <Content Include="Assets\Graphics\SegmenterGuide.png" />
     <Content Include="Assets\Icons\Check.png" />
     <Content Include="Assets\Icons\Delete.png" />
     <Content Include="Assets\Icons\Folder.png" />

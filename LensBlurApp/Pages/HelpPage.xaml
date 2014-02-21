@@ -9,7 +9,7 @@
 -->
 
 <phone:PhoneApplicationPage
-    x:Class="LensBlurApp.Pages.AboutPage"
+    x:Class="LensBlurApp.Pages.HelpPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -56,15 +56,28 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="{Binding Path=LocalizedResources.Application_Title, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="{Binding Path=LocalizedResources.AboutPage_Title, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.HelpPage_Title, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <RichTextBox VerticalAlignment="Top">
-                <Paragraph x:Name="VersionParagraph"/>
-                <Paragraph x:Name="AboutParagraph"/>
-            </RichTextBox>
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=LocalizedResources.HelpPage_OpenGuideText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                               TextWrapping="Wrap" Margin="12,0,12,12"/>
+                    
+                    <TextBlock Text="{Binding Path=LocalizedResources.HelpPage_SegmenterGuideText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                               TextWrapping="Wrap"/>
+                    <Image Source="/Assets/Graphics/SegmenterGuide.png" Margin="12,24"/>
+
+                    <TextBlock Text="{Binding Path=LocalizedResources.HelpPage_EffectGuideText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                               TextWrapping="Wrap"/>
+                    <Image Source="/Assets/Graphics/EffectGuide.png" Margin="12,24"/>
+
+                    <TextBlock Text="{Binding Path=LocalizedResources.HelpPage_SaveGuideText, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"
+                               TextWrapping="Wrap" Margin="12,0,12,24"/>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 
