@@ -6,6 +6,8 @@ Lens Blur is an example application for Windows Phone demonstrating the use of t
 This example application is hosted in GitHub:
 https://github.com/nokia-developer/lens-blur/
 
+For more information on implementation visit Nokia Lumia Developer's Library: http://developer.nokia.com/resources/library/Lumia/nokia-imaging-sdk/sample-projects/lens-blur.html
+
 Developed with Microsoft Visual Studio Express 2012 for Windows Phone.
 
 Compatible with:
