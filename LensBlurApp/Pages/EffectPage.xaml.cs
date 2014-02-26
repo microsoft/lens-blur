@@ -176,7 +176,7 @@ namespace LensBlurApp.Pages
                 using (var segmenter = new InteractiveForegroundSegmenter(source))
                 using (var annotationsSource = new BitmapImageSource(Model.AnnotationsBitmap))
                 {
-                    segmenter.Quality = 0.5;
+                    segmenter.Quality = 0.25;
                     segmenter.AnnotationsSource = annotationsSource;
 
                     var foregroundColor = Model.ForegroundBrush.Color;
@@ -198,12 +198,12 @@ namespace LensBlurApp.Pages
 
                             try
                             {
-                            await renderer.RenderAsync();
+                                await renderer.RenderAsync();
 
-                            PreviewImage.Source = previewBitmap;
+                                PreviewImage.Source = previewBitmap;
 
-                            previewBitmap.Invalidate();
-                        }
+                                previewBitmap.Invalidate();
+                            }
                             catch (Exception ex)
                             {
                                 System.Diagnostics.Debug.WriteLine("AttemptUpdatePreviewAsync rendering failed: " + ex.Message);
@@ -267,8 +267,8 @@ namespace LensBlurApp.Pages
 
                         try
                         {
-                        buffer = await renderer.RenderAsync();
-                    }
+                            buffer = await renderer.RenderAsync();
+                        }
                         catch (Exception ex)
                         {
                             System.Diagnostics.Debug.WriteLine("AttemptSave rendering failed: " + ex.Message);
@@ -278,15 +278,15 @@ namespace LensBlurApp.Pages
 
                 if (buffer != null)
                 {
-                using (var library = new MediaLibrary())
-                using (var stream = buffer.AsStream())
-                {
-                    library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
+                    using (var library = new MediaLibrary())
+                    using (var stream = buffer.AsStream())
+                    {
+                        library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
 
-                    Model.Saved = true;
+                        Model.Saved = true;
 
-                    AdaptButtonsToState();
-                }
+                        AdaptButtonsToState();
+                    }
                 }
 
                 Processing = false;
