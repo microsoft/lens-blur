@@ -157,7 +157,9 @@ namespace LensBlurApp.Pages
             StarButton.Background = _shape == LensBlurPredefinedKernelShape.Star ? accentColorBrush : transparentBrush;
             HeartButton.Background = _shape == LensBlurPredefinedKernelShape.Heart ? accentColorBrush : transparentBrush;
 
-            _saveButton.IsEnabled = !Model.Saved;
+            _saveButton.IsEnabled = !Model.Saved && !Processing;
+            _helpMenuItem.IsEnabled = !Processing;
+            _aboutMenuItem.IsEnabled = !Processing;
         }
 
         private async void AttemptUpdatePreviewAsync()
@@ -165,6 +167,8 @@ namespace LensBlurApp.Pages
             if (!Processing)
             {
                 Processing = true;
+
+                AdaptButtonsToState();
 
                 Model.OriginalImage.Position = 0;
 
@@ -192,17 +196,26 @@ namespace LensBlurApp.Pages
                         {
                             effect.KernelMap = segmenter;
 
+                            try
+                            {
                             await renderer.RenderAsync();
 
                             PreviewImage.Source = previewBitmap;
 
                             previewBitmap.Invalidate();
                         }
+                            catch (Exception ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine("AttemptUpdatePreviewAsync rendering failed: " + ex.Message);
+                            }
+                        }
                     }
                     while (_processingPending);
                 }
 
                 Processing = false;
+
+                AdaptButtonsToState();
             }
             else
             {
@@ -230,7 +243,7 @@ namespace LensBlurApp.Pages
                 {
                 }
 
-                IBuffer buffer;
+                IBuffer buffer = null;
 
                 Model.OriginalImage.Position = 0;
 
@@ -252,10 +265,19 @@ namespace LensBlurApp.Pages
                     {
                         effect.KernelMap = segmenter;
 
+                        try
+                        {
                         buffer = await renderer.RenderAsync();
+                    }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Debug.WriteLine("AttemptSave rendering failed: " + ex.Message);
+                        }
                     }
                 }
 
+                if (buffer != null)
+                {
                 using (var library = new MediaLibrary())
                 using (var stream = buffer.AsStream())
                 {
@@ -264,6 +286,7 @@ namespace LensBlurApp.Pages
                     Model.Saved = true;
 
                     AdaptButtonsToState();
+                }
                 }
 
                 Processing = false;

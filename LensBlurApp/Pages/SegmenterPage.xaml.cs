@@ -239,9 +239,12 @@ namespace LensBlurApp.Pages
 
         private void AdaptButtonsToState()
         {
-            _undoButton.IsEnabled = AnnotationsDrawn;
-            _resetButton.IsEnabled = AnnotationsDrawn;
-            _acceptButton.IsEnabled = ForegroundAnnotationsDrawn && BackgroundAnnotationsDrawn;
+            _openButton.IsEnabled = !Processing;
+            _undoButton.IsEnabled = AnnotationsDrawn && !Processing;
+            _resetButton.IsEnabled = AnnotationsDrawn && !Processing;
+            _acceptButton.IsEnabled = ForegroundAnnotationsDrawn && BackgroundAnnotationsDrawn && !Processing;
+            _helpMenuItem.IsEnabled = !Processing;
+            _aboutMenuItem.IsEnabled = !Processing;
 
             if (Model.OriginalImage != null)
             {
@@ -378,6 +381,8 @@ namespace LensBlurApp.Pages
             {
                 Processing = true;
                 
+                AdaptButtonsToState();
+                
                 do
                 {
                     _processingPending = false;
@@ -412,6 +417,8 @@ namespace LensBlurApp.Pages
                             segmenter.Quality = 0.5;
                             segmenter.AnnotationsSource = annotationsSource;
 
+                            try
+                            {
                             await renderer.RenderAsync();
 
                             MaskImage.Source = maskBitmap;
@@ -419,6 +426,11 @@ namespace LensBlurApp.Pages
                             maskBitmap.Invalidate();
 
                             Model.AnnotationsBitmap = (Bitmap)annotationsBitmap.AsBitmap();
+                        }
+                            catch (Exception ex)
+                            {
+                                System.Diagnostics.Debug.WriteLine("AttemptUpdatePreviewAsync rendering failed: " + ex.Message);
+                            }
                         }
                     }
                     else
@@ -429,6 +441,8 @@ namespace LensBlurApp.Pages
                 while (_processingPending && !_manipulating);
 
                 Processing = false;
+
+                AdaptButtonsToState();
             }
             else
             {
