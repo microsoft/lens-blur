@@ -24,7 +24,7 @@ namespace LensBlurApp.Pages
         {
             get
             {
-                var width = 220.0 * (Application.Current.Host.Content.ScaleFactor / 100.0);
+                var width = 226.0 * (Application.Current.Host.Content.ScaleFactor / 100.0);
 
                 return new BitmapImage(new Uri("/Assets/Photos/" + File.Name, UriKind.Relative)) { DecodePixelWidth = (int)width };
             }
