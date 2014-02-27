@@ -253,15 +253,11 @@ namespace LensBlurApp.Pages
 
                 ForegroundButton.Background = _brush == Model.ForegroundBrush ? Model.ForegroundBrush : null;
                 BackgroundButton.Background = _brush == Model.BackgroundBrush ? Model.BackgroundBrush : null;
-
-                GuideTextBlock.Visibility = Visibility.Collapsed;
             }
             else
             {
                 ForegroundButton.IsEnabled = false;
                 BackgroundButton.IsEnabled = false;
-
-                GuideTextBlock.Visibility = Visibility.Visible;
             }
         }
 

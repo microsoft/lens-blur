@@ -1,4 +1,4 @@
-Lens Blur
+﻿Lens Blur
 =========
 
 Lens Blur is an example application for Windows Phone demonstrating the use of two new Nokia Imaging SDK APIs, Interactive Foreground Segmenter and Lens Blur Effect. Interactive Foreground Segmenter is first used to create a mask (foreground/background), after which Lens Blur Effect (aka “bokeh”) is applied to the areas that were marked as background.
@@ -81,6 +81,9 @@ License
 
 See the license text file delivered with this project:
 https://github.com/nokia-developer/lens-blur/blob/master/License.txt
+
+See the attributions text file for a list of built-in gallery photo attributions:
+https://github.com/nokia-developer/lens-blur/blob/master/Attributions.txt
 
 
 Downloads

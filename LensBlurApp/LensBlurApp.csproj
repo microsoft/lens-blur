@@ -100,6 +100,9 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\GalleryPage.xaml.cs">
+      <DependentUpon>GalleryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HelpPage.xaml.cs">
       <DependentUpon>HelpPage.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,10 @@
     </ApplicationDefinition>
     <Page Include="Pages\AboutPage.xaml">
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GalleryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\HelpPage.xaml">
       <SubType>Designer</SubType>
@@ -159,6 +166,14 @@
     <Content Include="Assets\Icons\Save.png" />
     <Content Include="Assets\Icons\Undo.png" />
     <Content Include="Assets\Graphics\Star.png" />
+    <Content Include="Assets\Photos\6837287796_7712fe11e7_o.jpg" />
+    <Content Include="Assets\Photos\6882423442_b5bb97ff4d_o.jpg" />
+    <Content Include="Assets\Photos\7539149542_14e5b69513_o.jpg" />
+    <Content Include="Assets\Photos\7940420418_b3012fd8b4_o.jpg" />
+    <Content Include="Assets\Photos\buildings-160061_1280.png" />
+    <Content Include="Assets\Photos\climber-4048_1920.jpg" />
+    <Content Include="Assets\Photos\delicate-4625_1920.jpg" />
+    <Content Include="Assets\Photos\mount-50920_1920.jpg" />
     <Content Include="Assets\Tiles\IconicTile.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
@@ -183,6 +198,7 @@
       <HintPath>..\packages\NokiaImagingSDK.1.1.177\lib\wp8\Nokia.Graphics.Imaging.Managed.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

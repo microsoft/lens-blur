@@ -1,0 +1,49 @@
+Filename: Assets/Photos/7539149542_14e5b69513_o.jpg
+Source URL: http://www.flickr.com/photos/free-stock/7539149542/
+Copyright: Emilian Robert Vicol
+License: http://creativecommons.org/licenses/by/2.0/
+
+Filename: Assets/Photos/6882423442_b5bb97ff4d_o.jpg
+Source URL: http://www.flickr.com/photos/free-stock/6882423442/
+Copyright: Emilian Robert Vicol
+License: http://creativecommons.org/licenses/by/2.0/
+
+Filename: Assets/Photos/6837287796_7712fe11e7_o.jpg
+Source URL: http://www.flickr.com/photos/free-stock/6837287796/
+Copyright: Emilian Robert Vicol
+License: http://creativecommons.org/licenses/by/2.0/
+
+Filename: Assets/Photos/7940420418_b3012fd8b4_o.jpg
+Source URL: http://www.flickr.com/photos/free-stock/7940420418/
+Copyright: Emilian Robert Vicol
+License: http://creativecommons.org/licenses/by/2.0/
+
+Filename: Assets/Photos/delicate-4625_1920.jpg
+Source URL: http://pixabay.com/en/delicate-arch-arches-national-park-4625/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: Assets/Photos/mount-50920_1920.jpg
+Source URL: http://pixabay.com/en/mount-ruapehu-mountains-new-zealand-50920/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: Assets/Photos/lake-powell-50681_1280.jpg
+Source URL: http://pixabay.com/en/lake-powell-page-arizona-water-50681/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: Assets/Photos/climber-4048_1920.jpg
+Source URL: http://pixabay.com/en/climber-rock-man-person-4048/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: Assets/Photos/landscape-219850_1280.jpg
+Source URL: http://pixabay.com/en/landscape-camera-silhouette-219850/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: Assets/Photos/buildings-160061_1280.png
+Source URL: http://pixabay.com/en/buildings-city-cityscape-sky-stars-160061/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en

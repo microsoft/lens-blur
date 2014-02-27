@@ -241,6 +241,24 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to open.
+        /// </summary>
+        public static string GalleryPage_OpenButton {
+            get {
+                return ResourceManager.GetString("GalleryPage_OpenButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select photo.
+        /// </summary>
+        public static string GalleryPage_Title {
+            get {
+                return ResourceManager.GetString("GalleryPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When you&apos;re ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second step, try out different lens blur effect kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections..
         /// </summary>
         public static string HelpPage_EffectGuideText {
@@ -327,17 +345,6 @@ namespace LensBlurApp.Resources {
         public static string SegmenterPage_ForegroundButton {
             get {
                 return ResourceManager.GetString("SegmenterPage_ForegroundButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to To begin, open an image from the Photos gallery by tapping on the open icon in the application bar.
-        ///
-        ///For detailed guide on how to use this application, select &quot;help&quot; from the application menu..
-        /// </summary>
-        public static string SegmenterPage_GuideText {
-            get {
-                return ResourceManager.GetString("SegmenterPage_GuideText", resourceCulture);
             }
         }
         
