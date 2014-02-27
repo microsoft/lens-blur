@@ -129,14 +129,14 @@ namespace LensBlurApp.Pages
             }
         }
 
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            if (Processing && e.IsCancelable)
+            if (Processing)
             {
                 e.Cancel = true;
             }
 
-            base.OnNavigatingFrom(e);
+            base.OnBackKeyPress(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

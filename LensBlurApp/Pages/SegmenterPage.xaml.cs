@@ -224,9 +224,9 @@ namespace LensBlurApp.Pages
             ManipulationArea.ManipulationCompleted += AnnotationsCanvas_ManipulationCompleted;
         }
 
-        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            if (Processing && e.IsCancelable)
+            if (Processing)
             {
                 e.Cancel = true;
             }
@@ -237,7 +237,7 @@ namespace LensBlurApp.Pages
                 ManipulationArea.ManipulationCompleted -= AnnotationsCanvas_ManipulationCompleted;
             }
 
-            base.OnNavigatingFrom(e);
+            base.OnBackKeyPress(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
