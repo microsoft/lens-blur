@@ -224,17 +224,20 @@ namespace LensBlurApp.Pages
             ManipulationArea.ManipulationCompleted += AnnotationsCanvas_ManipulationCompleted;
         }
 
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+
+            ManipulationArea.ManipulationStarted -= AnnotationsCanvas_ManipulationStarted;
+            ManipulationArea.ManipulationDelta -= AnnotationsCanvas_ManipulationDelta;
+            ManipulationArea.ManipulationCompleted -= AnnotationsCanvas_ManipulationCompleted;
+        }
+
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
             if (Processing)
             {
                 e.Cancel = true;
-            }
-            else
-            {
-                ManipulationArea.ManipulationStarted -= AnnotationsCanvas_ManipulationStarted;
-                ManipulationArea.ManipulationDelta -= AnnotationsCanvas_ManipulationDelta;
-                ManipulationArea.ManipulationCompleted -= AnnotationsCanvas_ManipulationCompleted;
             }
 
             base.OnBackKeyPress(e);
