@@ -61,31 +61,90 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ScrollViewer x:Name="PhotosPanel" Margin="12,0,4,0">
-                <ItemsControl ItemsSource="{Binding Photos}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <!--<toolkit:WrapPanel x:Name="PhotosWrapPanel" ItemWidth="146" ItemHeight="146"/>-->
-                            <toolkit:WrapPanel x:Name="PhotosWrapPanel" ItemWidth="220" ItemHeight="220"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+            <ScrollViewer Margin="12,0,4,0">
+                <StackPanel>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="109"/>
+                            <RowDefinition Height="109"/>
+                            <RowDefinition Height="109"/>
+                            <RowDefinition Height="109"/>
+                            <RowDefinition Height="109"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="109"/>
+                            <ColumnDefinition Width="109"/>
+                            <ColumnDefinition Width="109"/>
+                            <ColumnDefinition Width="109"/>
+                        </Grid.ColumnDefinitions>
 
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <!--<Grid Margin="0,0,8,8">-->
-                            <Grid Margin="0,0,12,12">
-                                <Image Source="{Binding Thumbnail}" Tap="Thumbnail_Tap"
-                                       CacheMode="BitmapCache" Tag="{Binding}" Stretch="UniformToFill"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
+                        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,8,8"
+                           Source="{Binding Photo1.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo1}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo2.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo2}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo3.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo3}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo4.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo4}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo5.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo5}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo6.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo6}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo7.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo7}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo8.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo8}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo9.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo9}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo10.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo10}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo11.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo11}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,8,8"
+                           Source="{Binding Photo12.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo12}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo13.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo13}" Stretch="UniformToFill"/>
+
+                        <Image Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,0,8,8"
+                           Source="{Binding Photo14.Thumbnail}" Tap="Thumbnail_Tap"
+                           CacheMode="BitmapCache" Tag="{Binding Photo14}" Stretch="UniformToFill"/>
+                    </Grid>
+
+                    <TextBlock Text="{Binding Path=LocalizedResources.GalleryPage_OpenText, Source={StaticResource LocalizedStrings}}"
+                               Style="{StaticResource PhoneTextLargeStyle}" Tap="OpenTextBlock_Tap" Margin="0"/>
+                </StackPanel>
             </ScrollViewer>
         </Grid>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar/>
+        <shell:ApplicationBar Mode="Minimized"/>
     </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>

@@ -241,11 +241,11 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to open.
+        ///   Looks up a localized string similar to photos.
         /// </summary>
-        public static string GalleryPage_OpenButton {
+        public static string GalleryPage_OpenText {
             get {
-                return ResourceManager.GetString("GalleryPage_OpenButton", resourceCulture);
+                return ResourceManager.GetString("GalleryPage_OpenText", resourceCulture);
             }
         }
         

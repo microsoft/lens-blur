@@ -225,7 +225,7 @@
   <data name="GalleryPage_Title" xml:space="preserve">
     <value>select photo</value>
   </data>
-  <data name="GalleryPage_OpenButton" xml:space="preserve">
-    <value>open</value>
+  <data name="GalleryPage_OpenText" xml:space="preserve">
+    <value>photos</value>
   </data>
 </root>
