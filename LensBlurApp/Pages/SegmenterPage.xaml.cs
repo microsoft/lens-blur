@@ -411,7 +411,7 @@ namespace LensBlurApp.Pages
 
                             segmenter.ForegroundColor = Windows.UI.Color.FromArgb(foregroundColor.A, foregroundColor.R, foregroundColor.G, foregroundColor.B);
                             segmenter.BackgroundColor = Windows.UI.Color.FromArgb(backgroundColor.A, backgroundColor.R, backgroundColor.G, backgroundColor.B);
-                            segmenter.Quality = 0.25;
+                            segmenter.Quality = 0.5;
                             segmenter.AnnotationsSource = annotationsSource;
 
                             try
