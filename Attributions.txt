@@ -47,3 +47,33 @@ Filename: Assets/Photos/buildings-160061_1280.png
 Source URL: http://pixabay.com/en/buildings-city-cityscape-sky-stars-160061/
 Copyright: Public Domain
 License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: usa-123384_1920.jpg
+http://pixabay.com/en/usa-new-york-nyc-big-appel-skyline-123384/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: statue-of-liberty-216109_1920.jpg
+http://pixabay.com/en/statue-of-liberty-new-york-bartholdi-216109/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: coffee-56340_1920.jpg
+http://pixabay.com/en/coffee-grains-drink-the-drink-56340/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: lovebirds-4234_1920.jpg
+http://pixabay.com/en/lovebirds-bird-parrot-4234/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: stop-207329_1920.jpg
+http://pixabay.com/en/stop-blue-mark-207329/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+
+Filename: matterhorn-113331_1920.jpg
+http://pixabay.com/en/matterhorn-mountain-high-mountains-113331/
+Copyright: Public Domain
+License: http://creativecommons.org/publicdomain/zero/1.0/deed.en
