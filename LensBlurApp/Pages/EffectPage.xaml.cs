@@ -29,7 +29,6 @@ namespace LensBlurApp.Pages
     {
         private bool _processing;
         private bool _processingPending;
-        private LensBlurPredefinedKernelShape _shape = LensBlurPredefinedKernelShape.Circle;
         private ApplicationBarIconButton _saveButton;
         private ApplicationBarMenuItem _helpMenuItem;
         private ApplicationBarMenuItem _aboutMenuItem;
@@ -60,6 +59,15 @@ namespace LensBlurApp.Pages
             CreateButtons();
 
             SizeSlider.ValueChanged += SizeSlider_ValueChanged;
+
+            if (Model.KernelSize > 0.5)
+            {
+                SizeSlider.Value = Model.KernelSize;
+            }
+            else
+            {
+                Model.KernelSize = SizeSlider.Value;
+            }
         }
 
         private void CreateButtons()
@@ -109,6 +117,7 @@ namespace LensBlurApp.Pages
             AttemptUpdatePreviewAsync();
 
             Model.Saved = false;
+            Model.KernelSize = e.NewValue;
 
             AdaptButtonsToState();
         }
@@ -151,11 +160,11 @@ namespace LensBlurApp.Pages
             var accentColorBrush = (Brush)Application.Current.Resources["PhoneAccentBrush"];
             var transparentBrush = (Brush)Application.Current.Resources["TransparentBrush"];
 
-            CircleButton.Background = _shape == LensBlurPredefinedKernelShape.Circle ? accentColorBrush : transparentBrush;
-            HexagonButton.Background = _shape == LensBlurPredefinedKernelShape.Hexagon ? accentColorBrush : transparentBrush;
-            FlowerButton.Background = _shape == LensBlurPredefinedKernelShape.Flower ? accentColorBrush : transparentBrush;
-            StarButton.Background = _shape == LensBlurPredefinedKernelShape.Star ? accentColorBrush : transparentBrush;
-            HeartButton.Background = _shape == LensBlurPredefinedKernelShape.Heart ? accentColorBrush : transparentBrush;
+            CircleButton.Background = Model.KernelShape == LensBlurPredefinedKernelShape.Circle ? accentColorBrush : transparentBrush;
+            HexagonButton.Background = Model.KernelShape == LensBlurPredefinedKernelShape.Hexagon ? accentColorBrush : transparentBrush;
+            FlowerButton.Background = Model.KernelShape == LensBlurPredefinedKernelShape.Flower ? accentColorBrush : transparentBrush;
+            StarButton.Background = Model.KernelShape == LensBlurPredefinedKernelShape.Star ? accentColorBrush : transparentBrush;
+            HeartButton.Background = Model.KernelShape == LensBlurPredefinedKernelShape.Heart ? accentColorBrush : transparentBrush;
 
             _saveButton.IsEnabled = !Model.Saved && !Processing;
             _helpMenuItem.IsEnabled = !Processing;
@@ -191,7 +200,7 @@ namespace LensBlurApp.Pages
 
                         var previewBitmap = new WriteableBitmap((int)Model.AnnotationsBitmap.Dimensions.Width, (int)Model.AnnotationsBitmap.Dimensions.Height);
 
-                        using (var effect = new LensBlurEffect(source, new LensBlurPredefinedKernel(_shape, (uint)SizeSlider.Value)))
+                        using (var effect = new LensBlurEffect(source, new LensBlurPredefinedKernel(Model.KernelShape, (uint)Model.KernelSize)))
                         using (var renderer = new WriteableBitmapRenderer(effect, previewBitmap))
                         {
                             effect.KernelMap = segmenter;
@@ -260,7 +269,7 @@ namespace LensBlurApp.Pages
                     segmenter.ForegroundColor = Windows.UI.Color.FromArgb(foregroundColor.A, foregroundColor.R, foregroundColor.G, foregroundColor.B);
                     segmenter.BackgroundColor = Windows.UI.Color.FromArgb(backgroundColor.A, backgroundColor.R, backgroundColor.G, backgroundColor.B);
 
-                    using (var effect = new LensBlurEffect(source, new LensBlurPredefinedKernel(_shape, (uint)SizeSlider.Value)))
+                    using (var effect = new LensBlurEffect(source, new LensBlurPredefinedKernel(Model.KernelShape, (uint)Model.KernelSize)))
                     using (var renderer = new JpegRenderer(effect))
                     {
                         effect.KernelMap = segmenter;
@@ -295,9 +304,9 @@ namespace LensBlurApp.Pages
 
         private void CircleButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_shape != LensBlurPredefinedKernelShape.Circle)
+            if (Model.KernelShape != LensBlurPredefinedKernelShape.Circle)
             {
-                _shape = LensBlurPredefinedKernelShape.Circle;
+                Model.KernelShape = LensBlurPredefinedKernelShape.Circle;
 
                 AttemptUpdatePreviewAsync();
 
@@ -309,9 +318,9 @@ namespace LensBlurApp.Pages
 
         private void HexagonButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_shape != LensBlurPredefinedKernelShape.Hexagon)
+            if (Model.KernelShape != LensBlurPredefinedKernelShape.Hexagon)
             {
-                _shape = LensBlurPredefinedKernelShape.Hexagon;
+                Model.KernelShape = LensBlurPredefinedKernelShape.Hexagon;
 
                 AttemptUpdatePreviewAsync();
 
@@ -323,9 +332,9 @@ namespace LensBlurApp.Pages
 
         private void FlowerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_shape != LensBlurPredefinedKernelShape.Flower)
+            if (Model.KernelShape != LensBlurPredefinedKernelShape.Flower)
             {
-                _shape = LensBlurPredefinedKernelShape.Flower;
+                Model.KernelShape = LensBlurPredefinedKernelShape.Flower;
 
                 AttemptUpdatePreviewAsync();
 
@@ -337,9 +346,9 @@ namespace LensBlurApp.Pages
 
         private void StarButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_shape != LensBlurPredefinedKernelShape.Star)
+            if (Model.KernelShape != LensBlurPredefinedKernelShape.Star)
             {
-                _shape = LensBlurPredefinedKernelShape.Star;
+                Model.KernelShape = LensBlurPredefinedKernelShape.Star;
 
                 AttemptUpdatePreviewAsync();
 
@@ -351,9 +360,9 @@ namespace LensBlurApp.Pages
 
         private void HeartButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_shape != LensBlurPredefinedKernelShape.Heart)
+            if (Model.KernelShape != LensBlurPredefinedKernelShape.Heart)
             {
-                _shape = LensBlurPredefinedKernelShape.Heart;
+                Model.KernelShape = LensBlurPredefinedKernelShape.Heart;
 
                 AttemptUpdatePreviewAsync();
 
