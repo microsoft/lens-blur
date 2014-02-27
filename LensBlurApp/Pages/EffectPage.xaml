@@ -62,7 +62,7 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,-12,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
@@ -180,9 +180,10 @@
                 <TextBlock Grid.Row="1" HorizontalAlignment="Right" Margin="12" Style="{StaticResource PhoneTextSmallStyle}"
                            Text="{Binding Path=LocalizedResources.EffectPage_MaximumLabel, Source={StaticResource LocalizedStrings}}"/>
             </Grid>
-        </Grid>
 
-        <ProgressBar x:Name="ProgressBar" Grid.Row="1" Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
+            <ProgressBar x:Name="ProgressBar" Margin="0,-12,0,0"
+                         Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
+        </Grid>
     </Grid>
     
     <phone:PhoneApplicationPage.ApplicationBar>

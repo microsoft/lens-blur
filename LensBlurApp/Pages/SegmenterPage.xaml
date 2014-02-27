@@ -62,21 +62,21 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,-12,12,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,50">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                
-                <Image x:Name="OriginalImage" Stretch="Uniform" MaxWidth="456" MaxHeight="490"/>
+
+                <Image x:Name="OriginalImage" Stretch="Uniform" MaxWidth="456" MaxHeight="500"/>
                 <Image x:Name="MaskImage" Opacity="0.625" Stretch="Uniform"/>
                 <Canvas x:Name="AnnotationsCanvas"/>
                 <Canvas x:Name="CurrentAnnotationCanvas"/>
@@ -95,9 +95,10 @@
                 <Button x:Name="BackgroundButton" Grid.Column="1" Click="BackgroundButton_Click" IsEnabled="False"
                         Content="{Binding Path=LocalizedResources.SegmenterPage_BackgroundButton, Source={StaticResource LocalizedStrings}}" />
             </Grid>
+            
+            <ProgressBar x:Name="ProgressBar" Margin="0,-12,0,0"
+                         Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
         </Grid>
-        
-        <ProgressBar x:Name="ProgressBar" Grid.Row="1" Visibility="Collapsed" IsIndeterminate="False" VerticalAlignment="Top"/>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>
