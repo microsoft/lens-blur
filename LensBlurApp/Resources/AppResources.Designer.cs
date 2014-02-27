@@ -277,7 +277,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This application allows you to create bokeh style lens blur effect on images. This means that you can keep certain areas of an image sharp (in focus) while applying a blur effect on rest of the image (out of focus). To get started with this, you must first open an image from the Photos gallery by tapping on the open icon in the application bar in this application..
+        ///   Looks up a localized string similar to This application allows you to create bokeh style lens blur effect on images. This means that you can keep certain areas of an image sharp (in focus) while applying a blur effect on rest of the image (out of focus). To get started, select an image from the built-in gallery or open an image from the device&apos;s Photos gallery..
         /// </summary>
         public static string HelpPage_OpenGuideText {
             get {
