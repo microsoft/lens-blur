@@ -40,6 +40,7 @@ namespace LensBlurApp.Pages
         private ApplicationBarMenuItem _aboutMenuItem;
         private PhotoResult _photoResult;
         private bool _manipulating;
+        private bool _renderedSuccesfully;
 
         private bool Processing
         {
@@ -242,7 +243,7 @@ namespace LensBlurApp.Pages
             _openButton.IsEnabled = !Processing;
             _undoButton.IsEnabled = AnnotationsDrawn && !Processing;
             _resetButton.IsEnabled = AnnotationsDrawn && !Processing;
-            _acceptButton.IsEnabled = ForegroundAnnotationsDrawn && BackgroundAnnotationsDrawn && !Processing;
+            _acceptButton.IsEnabled = ForegroundAnnotationsDrawn && BackgroundAnnotationsDrawn && !Processing && _renderedSuccesfully;
             _helpMenuItem.IsEnabled = !Processing;
             _aboutMenuItem.IsEnabled = !Processing;
 
@@ -376,7 +377,7 @@ namespace LensBlurApp.Pages
             if (!Processing)
             {
                 Processing = true;
-                
+
                 AdaptButtonsToState();
                 
                 do
@@ -415,17 +416,21 @@ namespace LensBlurApp.Pages
 
                             try
                             {
-                            await renderer.RenderAsync();
+                                await renderer.RenderAsync();
 
-                            MaskImage.Source = maskBitmap;
+                                MaskImage.Source = maskBitmap;
 
-                            maskBitmap.Invalidate();
+                                maskBitmap.Invalidate();
 
-                            Model.AnnotationsBitmap = (Bitmap)annotationsBitmap.AsBitmap();
-                        }
+                                Model.AnnotationsBitmap = (Bitmap)annotationsBitmap.AsBitmap();
+
+                                _renderedSuccesfully = true;
+                            }
                             catch (Exception ex)
                             {
                                 System.Diagnostics.Debug.WriteLine("AttemptUpdatePreviewAsync rendering failed: " + ex.Message);
+
+                                _renderedSuccesfully = false;
                             }
                         }
                     }
