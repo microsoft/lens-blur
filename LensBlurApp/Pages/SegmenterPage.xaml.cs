@@ -34,8 +34,8 @@ namespace LensBlurApp.Pages
         private bool _processingPending;
         private ApplicationBarIconButton _openButton;
         private ApplicationBarIconButton _undoButton;
-        private ApplicationBarIconButton _resetButton;
         private ApplicationBarIconButton _acceptButton;
+        private ApplicationBarMenuItem _resetMenuItem;
         private ApplicationBarMenuItem _helpMenuItem;
         private ApplicationBarMenuItem _aboutMenuItem;
         private PhotoResult _photoResult;
@@ -111,16 +111,15 @@ namespace LensBlurApp.Pages
                 IconUri = new Uri("Assets/Icons/Undo.png", UriKind.Relative),
             };
 
-            _resetButton = new ApplicationBarIconButton
-            {
-                Text = AppResources.SegmenterPage_ResetButton,
-                IconUri = new Uri("Assets/Icons/Delete.png", UriKind.Relative),
-            };
-
             _acceptButton = new ApplicationBarIconButton
             {
                 Text = AppResources.SegmenterPage_AcceptButton,
                 IconUri = new Uri("Assets/Icons/Check.png", UriKind.Relative),
+            };
+
+            _resetMenuItem = new ApplicationBarMenuItem
+            {
+                Text = AppResources.Application_ResetMenuItem
             };
 
             _helpMenuItem = new ApplicationBarMenuItem
@@ -135,17 +134,28 @@ namespace LensBlurApp.Pages
 
             _openButton.Click += OpenButton_Click;
             _undoButton.Click += UndoButton_Click;
-            _resetButton.Click += ResetButton_Click;
             _acceptButton.Click += AcceptButton_Click;
+            _resetMenuItem.Click += ResetMenuItem_Click;
             _helpMenuItem.Click += HelpMenuItem_Click;
             _aboutMenuItem.Click += AboutMenuItem_Click;
 
             ApplicationBar.Buttons.Add(_openButton);
             ApplicationBar.Buttons.Add(_undoButton);
-            ApplicationBar.Buttons.Add(_resetButton);
             ApplicationBar.Buttons.Add(_acceptButton);
+            ApplicationBar.MenuItems.Add(_resetMenuItem);
             ApplicationBar.MenuItems.Add(_helpMenuItem);
             ApplicationBar.MenuItems.Add(_aboutMenuItem);
+        }
+
+        private void ResetMenuItem_Click(object sender, EventArgs e)
+        {
+            AnnotationsCanvas.Children.Clear();
+
+            Model.Saved = false;
+
+            AdaptButtonsToState();
+
+            AttemptUpdatePreviewAsync();
         }
 
         private void HelpMenuItem_Click(object sender, EventArgs e)
@@ -241,9 +251,9 @@ namespace LensBlurApp.Pages
         private void AdaptButtonsToState()
         {
             _openButton.IsEnabled = !Processing;
-            _undoButton.IsEnabled = AnnotationsDrawn && !Processing;
-            _resetButton.IsEnabled = AnnotationsDrawn && !Processing;
+            _undoButton.IsEnabled = AnnotationsDrawn;
             _acceptButton.IsEnabled = ForegroundAnnotationsDrawn && BackgroundAnnotationsDrawn && !Processing && _renderedSuccesfully;
+            _resetMenuItem.IsEnabled = AnnotationsDrawn;
             _helpMenuItem.IsEnabled = !Processing;
             _aboutMenuItem.IsEnabled = !Processing;
 
@@ -345,17 +355,6 @@ namespace LensBlurApp.Pages
         private void UndoButton_Click(object sender, EventArgs e)
         {
             AnnotationsCanvas.Children.RemoveAt(AnnotationsCanvas.Children.Count - 1);
-
-            Model.Saved = false;
-
-            AdaptButtonsToState();
-
-            AttemptUpdatePreviewAsync();
-        }
-
-        private void ResetButton_Click(object sender, EventArgs e)
-        {
-            AnnotationsCanvas.Children.Clear();
 
             Model.Saved = false;
 

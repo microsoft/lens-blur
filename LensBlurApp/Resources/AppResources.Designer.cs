@@ -142,6 +142,15 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to clear all.
+        /// </summary>
+        public static string Application_ResetMenuItem {
+            get {
+                return ResourceManager.GetString("Application_ResetMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LENS BLUR.
         /// </summary>
         public static string Application_Title {
@@ -354,15 +363,6 @@ namespace LensBlurApp.Resources {
         public static string SegmenterPage_OpenButton {
             get {
                 return ResourceManager.GetString("SegmenterPage_OpenButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to reset.
-        /// </summary>
-        public static string SegmenterPage_ResetButton {
-            get {
-                return ResourceManager.GetString("SegmenterPage_ResetButton", resourceCulture);
             }
         }
         
