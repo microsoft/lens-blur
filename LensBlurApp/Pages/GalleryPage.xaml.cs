@@ -73,6 +73,12 @@ namespace LensBlurApp.Pages
 
                 DataContext = _viewModel;
             }
+
+            Model.AnnotationsBitmap = null;
+            Model.KernelShape = Nokia.Graphics.Imaging.LensBlurPredefinedKernelShape.Circle;
+            Model.KernelSize = 0.0;
+            Model.OriginalImage = null;
+            Model.Saved = false;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
