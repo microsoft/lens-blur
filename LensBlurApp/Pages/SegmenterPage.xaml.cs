@@ -181,47 +181,54 @@ namespace LensBlurApp.Pages
         {
             base.OnNavigatedTo(e);
 
-            if (_photoResult != null)
+            if (Model.OriginalImage == null)
             {
-                Model.OriginalImage = _photoResult.ChosenPhoto;
-
-                _photoResult = null;
-
-                AnnotationsCanvas.Children.Clear();
-
-                Model.Saved = false;
-            }
-
-            if (Model.OriginalImage != null)
-            {
-                if (_brush == null)
-                {
-                    _brush = Model.ForegroundBrush;
-                }
-
-                var originalBitmap = new BitmapImage
-                {
-                    DecodePixelWidth = (int)(480.0 * Application.Current.Host.Content.ScaleFactor / 100.0)
-                };
-
-                Model.OriginalImage.Position = 0;
-
-                originalBitmap.SetSource(Model.OriginalImage);
-
-                OriginalImage.Source = originalBitmap;
-
-                AttemptUpdatePreviewAsync();
+                NavigationService.GoBack();
             }
             else
             {
-                _brush = null;
+                if (_photoResult != null)
+                {
+                    Model.OriginalImage = _photoResult.ChosenPhoto;
+
+                    _photoResult = null;
+
+                    AnnotationsCanvas.Children.Clear();
+
+                    Model.Saved = false;
+                }
+
+                if (Model.OriginalImage != null)
+                {
+                    if (_brush == null)
+                    {
+                        _brush = Model.ForegroundBrush;
+                    }
+
+                    var originalBitmap = new BitmapImage
+                    {
+                        DecodePixelWidth = (int)(480.0 * Application.Current.Host.Content.ScaleFactor / 100.0)
+                    };
+
+                    Model.OriginalImage.Position = 0;
+
+                    originalBitmap.SetSource(Model.OriginalImage);
+
+                    OriginalImage.Source = originalBitmap;
+
+                    AttemptUpdatePreviewAsync();
+                }
+                else
+                {
+                    _brush = null;
+                }
+
+                AdaptButtonsToState();
+
+                ManipulationArea.ManipulationStarted += AnnotationsCanvas_ManipulationStarted;
+                ManipulationArea.ManipulationDelta += AnnotationsCanvas_ManipulationDelta;
+                ManipulationArea.ManipulationCompleted += AnnotationsCanvas_ManipulationCompleted;
             }
-
-            AdaptButtonsToState();
-
-            ManipulationArea.ManipulationStarted += AnnotationsCanvas_ManipulationStarted;
-            ManipulationArea.ManipulationDelta += AnnotationsCanvas_ManipulationDelta;
-            ManipulationArea.ManipulationCompleted += AnnotationsCanvas_ManipulationCompleted;
         }
 
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
