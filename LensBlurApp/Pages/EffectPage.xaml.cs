@@ -238,6 +238,8 @@ namespace LensBlurApp.Pages
             {
                 Processing = true;
 
+                AdaptButtonsToState();
+
                 GC.Collect();
 
                 var lowMemory = false;
@@ -276,8 +278,8 @@ namespace LensBlurApp.Pages
 
                         try
                         {
-                        buffer = await renderer.RenderAsync();
-                    }
+                            buffer = await renderer.RenderAsync();
+                        }
                         catch (Exception ex)
                         {
                             System.Diagnostics.Debug.WriteLine("AttemptSave rendering failed: " + ex.Message);
@@ -287,18 +289,20 @@ namespace LensBlurApp.Pages
 
                 if (buffer != null)
                 {
-                using (var library = new MediaLibrary())
-                using (var stream = buffer.AsStream())
-                {
-                    library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
+                    using (var library = new MediaLibrary())
+                    using (var stream = buffer.AsStream())
+                    {
+                        library.SavePicture("lensblur_" + DateTime.Now.Ticks, stream);
 
-                    Model.Saved = true;
+                        Model.Saved = true;
 
-                    AdaptButtonsToState();
-                }
+                        AdaptButtonsToState();
+                    }
                 }
 
                 Processing = false;
+
+                AdaptButtonsToState();
             }
         }
 
