@@ -85,6 +85,26 @@ namespace LensBlurApp.Pages
             ProjectParagraph.Inlines.Add(projectRunSpan1);
             ProjectParagraph.Inlines.Add(projectLink);
             ProjectParagraph.Inlines.Add(projectRunSpan2);
+
+            // Link to photo attributions
+
+
+            var attributionsRunText = AppResources.AboutPage_AttributionsRun_Text;
+            var attributionsRunTextSpans = attributionsRunText.Split(new string[] { "{0}" }, StringSplitOptions.None);
+
+            var attributionsRunSpan1 = new Run();
+            attributionsRunSpan1.Text = attributionsRunTextSpans[0];
+
+            var attributionsLink = new Hyperlink();
+            attributionsLink.Inlines.Add(AppResources.AboutPage_Hyperlink_Attributions_Text);
+            attributionsLink.Click += AttributionsLink_Click;
+
+            var attributionsRunSpan2 = new Run();
+            attributionsRunSpan2.Text = attributionsRunTextSpans[1] + "\n";
+
+            AttributionsParagraph.Inlines.Add(attributionsRunSpan1);
+            AttributionsParagraph.Inlines.Add(attributionsLink);
+            AttributionsParagraph.Inlines.Add(attributionsRunSpan2);
         }
 
         private void ProjectLink_Click(object sender, RoutedEventArgs e)
@@ -92,6 +112,16 @@ namespace LensBlurApp.Pages
             var webBrowserTask = new WebBrowserTask()
             {
                 Uri = new Uri(AppResources.AboutPage_Hyperlink_Project_Url, UriKind.Absolute)
+            };
+
+            webBrowserTask.Show();
+        }
+
+        private void AttributionsLink_Click(object sender, RoutedEventArgs e)
+        {
+            var webBrowserTask = new WebBrowserTask()
+            {
+                Uri = new Uri(AppResources.AboutPage_Hyperlink_Attributions_Url, UriKind.Absolute)
             };
 
             webBrowserTask.Show();

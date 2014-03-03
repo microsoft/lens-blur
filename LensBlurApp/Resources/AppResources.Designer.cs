@@ -70,11 +70,38 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to For built-in photo gallery attributions see {0} in the project repository..
+        /// </summary>
+        public static string AboutPage_AttributionsRun_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_AttributionsRun_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This Nokia developer example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Nokia phone users. The source code and documentation of this example can be downloaded from Nokia Developer website..
         /// </summary>
         public static string AboutPage_DisclaimerText {
             get {
                 return ResourceManager.GetString("AboutPage_DisclaimerText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attributions.txt.
+        /// </summary>
+        public static string AboutPage_Hyperlink_Attributions_Text {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_Attributions_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://github.com/nokia-developer/lens-blur/blob/master/Attributions.txt.
+        /// </summary>
+        public static string AboutPage_Hyperlink_Attributions_Url {
+            get {
+                return ResourceManager.GetString("AboutPage_Hyperlink_Attributions_Url", resourceCulture);
             }
         }
         

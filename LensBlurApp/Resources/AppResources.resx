@@ -228,4 +228,14 @@
   <data name="Application_ResetMenuItem" xml:space="preserve">
     <value>clear all</value>
   </data>
+  <data name="AboutPage_AttributionsRun_Text" xml:space="preserve">
+    <value>For built-in photo gallery attributions see {0} in the project repository.</value>
+    <comment>{0} is a link to the photo attributions</comment>
+  </data>
+  <data name="AboutPage_Hyperlink_Attributions_Text" xml:space="preserve">
+    <value>Attributions.txt</value>
+  </data>
+  <data name="AboutPage_Hyperlink_Attributions_Url" xml:space="preserve">
+    <value>https://github.com/nokia-developer/lens-blur/blob/master/Attributions.txt</value>
+  </data>
 </root>
