@@ -99,7 +99,7 @@ namespace LensBlurApp.Pages
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            AttemptSave();
+            AttemptSaveAsync();
         }
 
         private void HelpMenuItem_Click(object sender, EventArgs e)
@@ -207,12 +207,12 @@ namespace LensBlurApp.Pages
 
                             try
                             {
-                            await renderer.RenderAsync();
+                                await renderer.RenderAsync();
 
-                            PreviewImage.Source = previewBitmap;
+                                PreviewImage.Source = previewBitmap;
 
-                            previewBitmap.Invalidate();
-                        }
+                                previewBitmap.Invalidate();
+                            }
                             catch (Exception ex)
                             {
                                 System.Diagnostics.Debug.WriteLine("AttemptUpdatePreviewAsync rendering failed: " + ex.Message);
@@ -232,7 +232,7 @@ namespace LensBlurApp.Pages
             }
         }
 
-        private async void AttemptSave()
+        private async void AttemptSaveAsync()
         {
             if (!Processing)
             {
