@@ -65,20 +65,23 @@ namespace LensBlurApp.Pages
 
                 NavigationService.Navigate(new Uri("/Pages/SegmenterPage.xaml", UriKind.Relative));
             }
-            else if (_viewModel == null)
+            else
             {
-                _viewModel = new GalleryPageViewModel();
+                if (_viewModel == null)
+                {
+                    _viewModel = new GalleryPageViewModel();
 
-                await _viewModel.Initialize();
+                    await _viewModel.Initialize();
 
-                DataContext = _viewModel;
+                    DataContext = _viewModel;
+                }
+
+                Model.AnnotationsBitmap = null;
+                Model.KernelShape = Nokia.Graphics.Imaging.LensBlurPredefinedKernelShape.Circle;
+                Model.KernelSize = 0.0;
+                Model.OriginalImage = null;
+                Model.Saved = false;
             }
-
-            Model.AnnotationsBitmap = null;
-            Model.KernelShape = Nokia.Graphics.Imaging.LensBlurPredefinedKernelShape.Circle;
-            Model.KernelSize = 0.0;
-            Model.OriginalImage = null;
-            Model.Saved = false;
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
