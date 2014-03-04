@@ -100,6 +100,9 @@
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\ZoomPage.xaml.cs">
+      <DependentUpon>ZoomPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\GalleryPage.xaml.cs">
       <DependentUpon>GalleryPage.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,9 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Pages\AboutPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\ZoomPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\GalleryPage.xaml">

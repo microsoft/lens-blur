@@ -277,7 +277,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to open from albums....
+        ///   Looks up a localized string similar to open photo from albums....
         /// </summary>
         public static string GalleryPage_OpenText {
             get {

@@ -375,5 +375,13 @@ namespace LensBlurApp.Pages
                 AdaptButtonsToState();
             }
         }
+
+        private void PreviewImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            if (!Processing)
+            {
+                NavigationService.Navigate(new Uri("/Pages/ZoomPage.xaml", UriKind.Relative));
+            }
+        }
     }
 }

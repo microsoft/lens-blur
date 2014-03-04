@@ -223,7 +223,7 @@
     <value>select photo</value>
   </data>
   <data name="GalleryPage_OpenText" xml:space="preserve">
-    <value>open from albums...</value>
+    <value>open photo from albums...</value>
   </data>
   <data name="Application_ResetMenuItem" xml:space="preserve">
     <value>clear all</value>

@@ -27,9 +27,6 @@
     <!--Toolkit page transititions-->
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
-            <toolkit:NavigationInTransition.Backward>
-                <toolkit:TurnstileTransition Mode="BackwardIn"/>
-            </toolkit:NavigationInTransition.Backward>
             <toolkit:NavigationInTransition.Forward>
                 <toolkit:TurnstileTransition Mode="ForwardIn"/>
             </toolkit:NavigationInTransition.Forward>
@@ -40,9 +37,6 @@
             <toolkit:NavigationOutTransition.Backward>
                 <toolkit:TurnstileTransition Mode="BackwardOut"/>
             </toolkit:NavigationOutTransition.Backward>
-            <toolkit:NavigationOutTransition.Forward>
-                <toolkit:TurnstileTransition Mode="ForwardOut"/>
-            </toolkit:NavigationOutTransition.Forward>
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
 
@@ -69,7 +63,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Image x:Name="PreviewImage" MaxWidth="456" MaxHeight="490"/>
+            <Image x:Name="PreviewImage" MaxWidth="456" MaxHeight="490" Tap="PreviewImage_Tap"/>
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
                 <Button x:Name="CircleButton" Click="CircleButton_Click" BorderThickness="2">
