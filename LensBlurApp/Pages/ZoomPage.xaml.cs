@@ -108,6 +108,8 @@ namespace LensBlurApp.Pages
                 {
                 }
 
+                var maxSide = lowMemory ? 2048.0 : 4096.0;
+
                 Model.OriginalImage.Position = 0;
 
                 using (var source = new StreamImageSource(Model.OriginalImage))
@@ -125,25 +127,34 @@ namespace LensBlurApp.Pages
 
                     var info = await source.GetInfoAsync();
 
-                    double s;
+                    double scaler, rotation;
+                    var width = info.ImageSize.Width;
+                    var height = info.ImageSize.Height;
 
-                    if (info.ImageSize.Width > info.ImageSize.Height)
+                    if (width > height)
                     {
-                        s = 4096.0 / info.ImageSize.Width;
+                        scaler = maxSide / width;
+                        rotation = 90;
+
+                        var t = width; // We're rotating the image, so swap width and height
+                        width = height;
+                        height = t;
                     }
                     else
                     {
-                        s = 4096.0 / info.ImageSize.Height;
+                        scaler = maxSide / height;
+                        rotation = 0;
                     }
 
-                    s = Math.Min(1, s);
+                    scaler = Math.Max(1, scaler);
 
-                    _bitmap = new WriteableBitmap((int)(info.ImageSize.Width * s), (int)(info.ImageSize.Height * s));
+                    _bitmap = new WriteableBitmap((int)(width * scaler), (int)(height * scaler));
 
-                    using (var effect = new LensBlurEffect(source, new LensBlurPredefinedKernel(Model.KernelShape, (uint)Model.KernelSize)))
-                    using (var renderer = new WriteableBitmapRenderer(effect, _bitmap))
+                    using (var blurEffect = new LensBlurEffect(source, new LensBlurPredefinedKernel(Model.KernelShape, (uint)Model.KernelSize)))
+                    using (var filterEffect = new FilterEffect(blurEffect) { Filters = new[] { new RotationFilter(rotation) }})
+                    using (var renderer = new WriteableBitmapRenderer(filterEffect, _bitmap))
                     {
-                        effect.KernelMap = segmenter;
+                        blurEffect.KernelMap = segmenter;
 
                         try
                         {
@@ -175,7 +186,7 @@ namespace LensBlurApp.Pages
         {
             if (_bitmap != null)
             {
-                if (_bitmap.PixelWidth > _bitmap.PixelHeight)
+                if (_bitmap.PixelWidth < _bitmap.PixelHeight)
                 {
                     _scale = LayoutRoot.ActualWidth / _bitmap.PixelWidth;
                 }
@@ -224,7 +235,7 @@ namespace LensBlurApp.Pages
 
                 double w, h;
 
-                if (pixelWidth > pixelHeight)
+                if (pixelWidth < pixelHeight)
                 {
                     w = pixelWidth * _scale * e.PinchManipulation.CumulativeScale;
                     w = Math.Max(LayoutRoot.ActualWidth, w);
