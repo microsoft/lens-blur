@@ -192,7 +192,7 @@
     <value>help</value>
   </data>
   <data name="HelpPage_EffectGuideText" xml:space="preserve">
-    <value>When you're ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second step, try out different lens blur effect kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections.</value>
+    <value>When you're ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second step, try out different lens blur effect kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections. You can also tap on the preview to go into a fullscreen mode, in which you can pinch zoom the photo.</value>
   </data>
   <data name="HelpPage_SaveGuideText" xml:space="preserve">
     <value>When you're happy with the result, you can save it to the Saved Photos album in the Photos gallery.</value>

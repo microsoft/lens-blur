@@ -295,7 +295,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When you&apos;re ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second step, try out different lens blur effect kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections..
+        ///   Looks up a localized string similar to When you&apos;re ready with marking the areas, click on the accept button to navigate to the blur shape selection. In this second step, try out different lens blur effect kernel shapes and sizes by tapping on the shape selection icons and by adjusting the size slider. The preview is again automatically updated to reflect your shape and size selections. You can also tap on the preview to go into a fullscreen mode, in which you can pinch zoom the photo..
         /// </summary>
         public static string HelpPage_EffectGuideText {
             get {
