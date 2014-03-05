@@ -91,10 +91,18 @@ Downloads
 
 | Project | Release | Download |
 | ------- | --------| -------- |
-| Lens Blur | v1.0 | [lens-blur-1.0.zip](https://github.com/nokia-developer/lens-blur/archive/v1.0.zip) |
+| Lens Blur | v1.1 | [lens-blur-1.1.zip](https://github.com/nokia-developer/lens-blur/archive/v1.1.zip) |
 
 
 Version history
 ---------------
+
+ * 1.1.0.0: Second public release of Lens Blur
+   - Built-in photo gallery to easily start testing the segmenter and the lens blur effect
+   - Moved reset (annotations) button to menu
+   - Effect settings are now preserved between effect configuration sessions
+   - Updated blur kernel shape selection button icons to match the actual shapes
+   - Photo zooming: on effect page you can now tap on the photo to enter a fullscreen zoom view
+   - Changed application icon and tiles to Nokia Developer style
 
  * 1.0.0.0: First public release of Lens Blur
