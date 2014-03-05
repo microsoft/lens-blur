@@ -187,7 +187,8 @@
     <Content Include="Assets\Photos\statue-of-liberty-216109_1920.jpg" />
     <Content Include="Assets\Photos\stop-207329_1920.jpg" />
     <Content Include="Assets\Photos\usa-123384_1920.jpg" />
-    <Content Include="Assets\Tiles\IconicTile.png" />
+    <Content Include="Assets\Tiles\MediumTile.png" />
+    <Content Include="Assets\Tiles\SmallTile.png" />
     <Content Include="README_FIRST.txt" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
