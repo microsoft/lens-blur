@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{fd5ffcf8-4a44-4e47-aff5-cba8fd5c777a}" Title="Lens Blur" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Nokia" Description="" Publisher="Nokia Developer" PublisherID="{dc2c6e35-29f0-4034-8207-5f1f0eedd4e6}">
+  <App xmlns="" ProductID="{fd5ffcf8-4a44-4e47-aff5-cba8fd5c777a}" Title="Lens Blur" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Nokia" Description="" Publisher="Nokia Developer" PublisherID="{dc2c6e35-29f0-4034-8207-5f1f0eedd4e6}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
