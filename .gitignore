@@ -1,0 +1,6 @@
+LensBlurApp/Bin/
+LensBlurApp/obj
+packages
+*.suo
+*.chm
+*.user

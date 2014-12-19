@@ -177,7 +177,7 @@
     <value>undo</value>
   </data>
   <data name="AboutPage_AboutText" xml:space="preserve">
-    <value>Lens Blur is a developer example application on how to use Nokia Imaging SDK interactive foreground segmenter and the lens blur effect to blur only selected areas of images.</value>
+    <value>Lens Blur is a developer example application on how to use Lumia Imaging SDK interactive foreground segmenter and the lens blur effect to blur only selected areas of images.</value>
   </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>about</value>
@@ -207,17 +207,17 @@
     <value>This application allows you to create bokeh style lens blur effect on images. This means that you can keep certain areas of an image sharp (in focus) while applying a blur effect on rest of the image (out of focus). To get started, select an image from the built-in gallery or open an image from the device's Photos gallery.</value>
   </data>
   <data name="AboutPage_DisclaimerText" xml:space="preserve">
-    <value>This Nokia developer example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Nokia phone users. The source code and documentation of this example can be downloaded from Nokia Developer website.</value>
+    <value>This Lumia Imaging example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Nokia phone users. The source code and documentation of this example can be downloaded from Github website.</value>
   </data>
   <data name="AboutPage_Hyperlink_Project_Text" xml:space="preserve">
-    <value>Nokia Developer website</value>
+    <value>Lumia Imaging website</value>
   </data>
   <data name="AboutPage_Hyperlink_Project_Url" xml:space="preserve">
-    <value>http://developer.nokia.com</value>
+    <value>https://github.com/Microsoft/lens-blur</value>
   </data>
   <data name="AboutPage_ProjectRun_Text" xml:space="preserve">
     <value>{0}</value>
-    <comment>{0} is a link to the Nokia Developer website</comment>
+    <comment>{0} is a link to the Lumia website</comment>
   </data>
   <data name="GalleryPage_Title" xml:space="preserve">
     <value>select photo</value>
@@ -236,6 +236,6 @@
     <value>Attributions.txt</value>
   </data>
   <data name="AboutPage_Hyperlink_Attributions_Url" xml:space="preserve">
-    <value>https://github.com/nokia-developer/lens-blur/blob/master/Attributions.txt</value>
+    <value>https://github.com/microsoft/lens-blur/blob/master/Attributions.txt</value>
   </data>
 </root>
