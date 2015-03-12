@@ -86,14 +86,6 @@ See the attributions text file for a list of built-in gallery photo attributions
 https://github.com/microsoft/lens-blur/blob/master/Attributions.txt
 
 
-Downloads
----------
-
-| Project | Release | Download |
-| ------- | --------| -------- |
-| Lens Blur | v1.1 | [lens-blur-1.1.zip](https://github.com/microsoft/lens-blur/archive/v1.1.zip) |
-
-
 Version history
 ---------------
 
