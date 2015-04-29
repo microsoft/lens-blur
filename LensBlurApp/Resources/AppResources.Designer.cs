@@ -79,7 +79,7 @@ namespace LensBlurApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This Lumia Imaging example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Nokia phone users. The source code and documentation of this example can be downloaded from Github website..
+        ///   Looks up a localized string similar to This Lumia Imaging example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Lumia phone users. The source code and documentation of this example can be downloaded from Github website..
         /// </summary>
         public static string AboutPage_DisclaimerText {
             get {

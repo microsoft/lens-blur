@@ -207,7 +207,7 @@
     <value>This application allows you to create bokeh style lens blur effect on images. This means that you can keep certain areas of an image sharp (in focus) while applying a blur effect on rest of the image (out of focus). To get started, select an image from the built-in gallery or open an image from the device's Photos gallery.</value>
   </data>
   <data name="AboutPage_DisclaimerText" xml:space="preserve">
-    <value>This Lumia Imaging example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Nokia phone users. The source code and documentation of this example can be downloaded from Github website.</value>
+    <value>This Lumia Imaging example application has been created to provide tips and best practice guidance for software developers and app designers, and may not have all the features you would expect in a commercial product. This application is published in Store as a free software as it may also have value to regular Lumia phone users. The source code and documentation of this example can be downloaded from Github website.</value>
   </data>
   <data name="AboutPage_Hyperlink_Project_Text" xml:space="preserve">
     <value>Lumia Imaging website</value>
