@@ -104,7 +104,7 @@ namespace LensBlurApp.Pages
             _viewModel = null;
         }
 
-        private void Thumbnail_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        private async void Thumbnail_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             var image = sender as Image;
             var photo = image.Tag as Photo;
@@ -113,7 +113,7 @@ namespace LensBlurApp.Pages
             {
                 var task = photo.File.OpenReadAsync().AsTask();
 
-                task.Wait();
+                await task;
 
                 Model.OriginalImage = task.Result.AsStream();
                 Model.Saved = false;
